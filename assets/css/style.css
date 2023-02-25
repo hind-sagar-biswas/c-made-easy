@@ -1,0 +1,94 @@
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  position: relative;
+  height: 100vh;
+  background-color: #111111;
+  color: #ffffff;
+}
+
+#banner {
+  text-align: center;
+  margin-top: 0;
+  padding-top: 40px;
+}
+#banner #logo {
+  padding: 0;
+  margin: 40px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: bold;
+  font-size: 7rem;
+  color: #0ba1d4;
+}
+#banner #prog {
+  font-family: "Courier New", Courier, monospace;
+  font-weight: bold;
+  font-size: 2rem;
+}
+
+.yellow {
+  color: #c9db36;
+}
+
+.blue {
+  color: #0ba1d4;
+}
+
+#explanation {
+  margin: 20px 0;
+  padding: 10px;
+  width: calc(100% - 40px);
+  max-width: 1200px;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+#actions {
+  margin: 20px 0 40px 0;
+  width: 50vw;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+#actions a button {
+  width: 300px;
+  padding: 10px 20px;
+  color: #ffffff;
+  font-weight: bolder;
+  border-radius: 5px;
+  cursor: pointer;
+  border: 0 solid transparent;
+  outline: none !important;
+  border: 0;
+  outline: none;
+  box-shadow: 0px 5px 10px black;
+  transition: all 0.3s;
+}
+#actions a button:hover {
+  box-shadow: 0px 15px 25px -5px black;
+  transform: scale(1.03);
+}
+#actions a button:active {
+  box-shadow: 0px 4px 8px #030303;
+  transform: scale(0.98);
+}
+#actions #red button {
+  background: #fb1d25;
+  border-bottom: 4px solid #af0309;
+}
+#actions #blue button {
+  background: #671690;
+  border-bottom: 4px solid #280838;
+}
+
+@media only screen and (max-device-width: 480px) {
+  #actions {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+  }
+  .hide-screen {
+    display: none;
+  }
+}/*# sourceMappingURL=style.css.map */
