@@ -6,6 +6,8 @@ $green: #72ce3f;
 $purple: #671690;
 $yellow: #c9db36;
 
+$background-hex: url(./../image/hex-back.jpg);
+
 body {
 	margin: 0;
 	padding: 0;
@@ -15,6 +17,11 @@ body {
 
 	background-color: $dark;
 	color: #ffffff;
+
+    background-image: $background-hex;
+    background-blend-mode: overlay;
+	background-attachment: fixed;
+	background-size: cover;
 }
 
 #banner {

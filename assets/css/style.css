@@ -6,6 +6,10 @@ body {
   height: 100vh;
   background-color: #111111;
   color: #ffffff;
+  background-image: url(./../image/hex-back.jpg);
+  background-blend-mode: overlay;
+  background-attachment: fixed;
+  background-size: cover;
 }
 
 #banner {
