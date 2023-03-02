@@ -11,9 +11,18 @@ require_once './scripts/includes/header.php';
 
 
 foreach ($sectionList as $section) {
-    require './scripts/includes/section.php';
+    require './scripts/includes/section.min.php';
 }
 ?>
 
+<!-- <section>
+    <h2 class="section-title"></h2>
+
+    <details>
+        <summary>See Explaination</summary>
+    </details> -->
+
+    
+</section>
 <?php
 require_once './scripts/includes/footer.php';

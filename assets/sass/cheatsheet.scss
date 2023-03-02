@@ -8,6 +8,7 @@ body {
 
 	background-color: $dark;
 	color: #ffffff;
+	min-height: 100vh;
 
 	background-image: $background-hex;
 	background-blend-mode: overlay;
@@ -17,31 +18,122 @@ body {
 	font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
-main {
-	max-width: 1300px;
-	width: 100%;
-	margin: auto;
-	margin-top: 20px;
+aside {
+	margin: 0;
+	padding-top: 20px;
+	width: 23%;
+	min-height: 100vh;
 
-	section {
-		margin-bottom: 20px;
-		padding: 10px;
+	float: left;
+
+	.side-item {
+		width: calc(100% - 50px);
+		margin: 0;
+		margin-bottom: 2px;
+		padding: 10px 20px;
+
+		background-color: rgba(0, 0, 0, 0.529);
+
+		color: $blue;
+		border-left: 10px solid $blue;
+		border-bottom: 3px solid $blue;
+
+		cursor: pointer;
+		transition: all 0.3s;
+	}
+
+	.revealed {
+		background-color: $blue;
+		color: $dark;
+		font-weight: bold;
+	}
+}
+
+main {
+	margin: 0;
+	margin-left: 23%;
+	padding: 0;
+	width: 77%;
+	// min-height: 100vh;
+
+	position: relative;
+
+	#load-cover {
+		position: absolute;
+		top: 0;
+		left: 10px;
+
+		width: calc(100% - 20px);
+		height: 100%;
+		overflow: hidden;
+		margin: 0;
+		margin-top: 20px;
+		padding: 0;
+
 		border-radius: 5px;
 
-		background: rgba(225, 225, 225, 0.3);
-		box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.3);
-		backdrop-filter: blur(4px);
-		-webkit-backdrop-filter: blur(4px);
-		border-radius: 10px;
-		border: 1px solid rgba(255, 255, 255, 0.18);
+		background-color: transparent;
+		pointer-events: none; 
 
-		.section-title {
-			color: $blue;
+		&.active {
+			background-color: $back;
+			pointer-events: all;
+
+			&::after {
+				position: absolute;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				left: 0;
+				transform: translateX(-100%);
+				background-image: linear-gradient(
+					90deg,
+					rgba(lighten($grey, 10%), 0) 0,
+					rgba(lighten($grey, 10%), 0.2) 20%,
+					rgba(lighten($grey, 10%), 0.5) 60%,
+					rgba(lighten($grey, 10%), 0)
+				);
+				animation: shimmer 2s infinite ease-in-out;
+				content: "";
+			}
+	
+			@keyframes shimmer {
+				100% {
+					transform: translateX(100%);
+				}
+			}
 		}
+	}
 
-		.subsection {
-			border-left: 10px solid $blue;
-			padding-left: 10px;
+	article {
+		width: calc(100% - 20px);
+		padding-top: 20px;
+		margin: auto;
+
+		section {
+			margin-bottom: 20px;
+			padding: 10px;
+			padding-left: 15px;
+			border-radius: 5px;
+
+			background: rgba(225, 225, 225, 0.3);
+			// box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.3);
+			backdrop-filter: blur(4px);
+			-webkit-backdrop-filter: blur(4px);
+			border-radius: 5px;
+			border: 1px solid rgba(255, 255, 255, 0.18);
+
+			transition: all 0.2s;
+
+			.section-title {
+				color: $blue;
+				border-bottom: 2px solid $blue;
+			}
+
+			.subsection {
+				border-left: 10px solid $blue;
+				padding-left: 10px;
+			}
 		}
 	}
 }
@@ -90,14 +182,20 @@ summary {
 	border-radius: 5px;
 }
 
+.same-pg-link {
+	color: lighten($color: $blue, $amount: 40%);
+	font-style: italic;
+}
+
 @media only screen and (max-device-width: 480px) {
-	main {
+	article {
 		section {
 			background-color: transparent;
 			border: none;
 			border-radius: 0px;
 			box-shadow: none;
 			margin-bottom: 5px;
+			transition: none;
 
 			article {
 				padding: 2px;
@@ -114,6 +212,11 @@ summary {
 				border-left: 4px solid $blue;
 				padding-left: 7px;
 			}
+		}
+
+		.unrevealed {
+			border-radius: 0;
+			border-bottom: 3px solid $blue;
 		}
 	}
 }

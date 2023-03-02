@@ -5,6 +5,7 @@ body {
   box-sizing: border-box;
   background-color: #111111;
   color: #ffffff;
+  min-height: 100vh;
   background-image: url(./../image/hex-back.jpg);
   background-blend-mode: overlay;
   background-attachment: fixed;
@@ -12,27 +13,94 @@ body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
-main {
-  max-width: 1300px;
-  width: 100%;
-  margin: auto;
-  margin-top: 20px;
+aside {
+  margin: 0;
+  padding-top: 20px;
+  width: 23%;
+  min-height: 100vh;
+  float: left;
 }
-main section {
+aside .side-item {
+  width: calc(100% - 50px);
+  margin: 0;
+  margin-bottom: 2px;
+  padding: 10px 20px;
+  background-color: rgba(0, 0, 0, 0.529);
+  color: #0ba1d4;
+  border-left: 10px solid #0ba1d4;
+  border-bottom: 3px solid #0ba1d4;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+aside .revealed {
+  background-color: #0ba1d4;
+  color: #111111;
+  font-weight: bold;
+}
+
+main {
+  margin: 0;
+  margin-left: 23%;
+  padding: 0;
+  width: 77%;
+  position: relative;
+}
+main #load-cover {
+  position: absolute;
+  top: 0;
+  left: 10px;
+  width: calc(100% - 20px);
+  height: 100%;
+  overflow: hidden;
+  margin: 0;
+  margin-top: 20px;
+  padding: 0;
+  border-radius: 5px;
+  background-color: transparent;
+  pointer-events: none;
+}
+main #load-cover.active {
+  background-color: url(./../image/hex-back.jpg);
+  pointer-events: all;
+}
+main #load-cover.active::after {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  transform: translateX(-100%);
+  background-image: linear-gradient(90deg, rgba(105, 105, 105, 0) 0, rgba(105, 105, 105, 0.2) 20%, rgba(105, 105, 105, 0.5) 60%, rgba(105, 105, 105, 0));
+  animation: shimmer 2s infinite ease-in-out;
+  content: "";
+}
+@keyframes shimmer {
+  100% {
+    transform: translateX(100%);
+  }
+}
+main article {
+  width: calc(100% - 20px);
+  padding-top: 20px;
+  margin: auto;
+}
+main article section {
   margin-bottom: 20px;
   padding: 10px;
+  padding-left: 15px;
   border-radius: 5px;
   background: rgba(225, 225, 225, 0.3);
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.3);
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
-  border-radius: 10px;
+  border-radius: 5px;
   border: 1px solid rgba(255, 255, 255, 0.18);
+  transition: all 0.2s;
 }
-main section .section-title {
+main article section .section-title {
   color: #0ba1d4;
+  border-bottom: 2px solid #0ba1d4;
 }
-main section .subsection {
+main article section .subsection {
   border-left: 10px solid #0ba1d4;
   padding-left: 10px;
 }
@@ -86,23 +154,33 @@ summary {
   border-radius: 5px;
 }
 
+.same-pg-link {
+  color: #b0e8fb;
+  font-style: italic;
+}
+
 @media only screen and (max-device-width: 480px) {
-  main section {
+  article section {
     background-color: transparent;
     border: none;
     border-radius: 0px;
     box-shadow: none;
     margin-bottom: 5px;
+    transition: none;
   }
-  main section article {
+  article section article {
     padding: 2px;
   }
-  main section article ul li {
+  article section article ul li {
     margin-bottom: 5px;
     text-align: justify;
   }
-  main section .subsection {
+  article section .subsection {
     border-left: 4px solid #0ba1d4;
     padding-left: 7px;
+  }
+  article .unrevealed {
+    border-radius: 0;
+    border-bottom: 3px solid #0ba1d4;
   }
 }/*# sourceMappingURL=cheatsheet.css.map */

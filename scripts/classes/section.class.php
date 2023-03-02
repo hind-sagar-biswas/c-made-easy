@@ -23,4 +23,19 @@ class Section extends Dbh
         $conn->close();
         return $result;
     }
+
+    public function get_section($id): mixed
+    {
+        $conn = $this->conn();
+        $sql = "SELECT * FROM `c_sections` WHERE id = '$id';";
+
+        $result = [];
+
+        if ($queried_result = mysqli_query($conn, $sql)) {
+            $result = mysqli_fetch_assoc($queried_result);
+        }
+
+        $conn->close();
+        return $result;
+    }
 }
