@@ -73,10 +73,10 @@ main {
 		border-radius: 5px;
 
 		background-color: transparent;
-		pointer-events: none; 
+		pointer-events: none;
 
 		&.active {
-			background-color: $back;
+			background-color: $grey;
 			pointer-events: all;
 
 			&::after {
@@ -96,11 +96,29 @@ main {
 				animation: shimmer 2s infinite ease-in-out;
 				content: "";
 			}
-	
+
 			@keyframes shimmer {
 				100% {
 					transform: translateX(100%);
 				}
+			}
+		}
+	}
+
+	table {
+		border-collapse: collapse;
+		border-radius: 10px;
+		table-layout: fixed;
+		width: 100%;
+		background-color: lighten($color: $dark, $amount: 5%);
+		
+		th,
+		td {
+			padding: 5px 10px;
+			border: 1px solid $grey;
+
+			&.red, &.green{
+				font-weight: bold;
 			}
 		}
 	}
@@ -133,6 +151,7 @@ main {
 			.subsection {
 				border-left: 10px solid $blue;
 				padding-left: 10px;
+				padding-bottom: 10px;
 			}
 		}
 	}
@@ -171,6 +190,9 @@ summary {
 .yellow {
 	color: $yellow;
 }
+.grey {
+	color: $grey;
+}
 
 .console {
 	color: white;
@@ -180,6 +202,7 @@ summary {
 	padding-left: 20px;
 	width: calc(100% - 20px);
 	border-radius: 5px;
+	line-height: 1.5em;
 }
 
 .same-pg-link {

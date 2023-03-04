@@ -60,7 +60,7 @@ main #load-cover {
   pointer-events: none;
 }
 main #load-cover.active {
-  background-color: url(./../image/hex-back.jpg);
+  background-color: #4f4f4f;
   pointer-events: all;
 }
 main #load-cover.active::after {
@@ -78,6 +78,23 @@ main #load-cover.active::after {
   100% {
     transform: translateX(100%);
   }
+}
+main table {
+  border-collapse: collapse;
+  border-radius: 10px;
+  table-layout: fixed;
+  width: 100%;
+  background-color: #1e1e1e;
+}
+main table th,
+main table td {
+  padding: 5px 10px;
+  border: 1px solid #4f4f4f;
+}
+main table th.red, main table th.green,
+main table td.red,
+main table td.green {
+  font-weight: bold;
 }
 main article {
   width: calc(100% - 20px);
@@ -103,6 +120,7 @@ main article section .section-title {
 main article section .subsection {
   border-left: 10px solid #0ba1d4;
   padding-left: 10px;
+  padding-bottom: 10px;
 }
 
 summary {
@@ -144,6 +162,10 @@ summary {
   color: #c9db36;
 }
 
+.grey {
+  color: #4f4f4f;
+}
+
 .console {
   color: white;
   background-color: black;
@@ -152,6 +174,7 @@ summary {
   padding-left: 20px;
   width: calc(100% - 20px);
   border-radius: 5px;
+  line-height: 1.5em;
 }
 
 .same-pg-link {
