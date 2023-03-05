@@ -179,7 +179,7 @@ summary {
 	color: $blue;
 }
 .purple {
-	color: $purple;
+	color: lighten($color: $purple, $amount: 40%);
 }
 .green {
 	color: $green;

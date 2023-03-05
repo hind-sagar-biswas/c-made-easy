@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<pre>
+1)Hello, world!*
+ simple hello world C program
+!code
+#include &lt;stdio.h>
+
+int main() {
+    printf("Hello, world!\n");
+    return 0;
+}
+Here's a brief explanation of what the code does:
+
+<b>#include &lt;stdio.h></b> is a preprocessor directive that includes the standard input/output library, which provides the <b>printf()</b> function for printing to the console.
+<b>int main()</b> is the main function of the program, which is required in all C programs. 
+It returns an integer value to the operating system to indicate whether the program executed successfully.
+<b>printf("Hello, world!\n")</b>; is a function call that prints the string "Hello, world!" followed by a newline character <b>(\n)</b> to the console.
+<b>return 0</b>; is a statement that exits the program and returns the integer value 0 to the operating system, which indicates that the program executed successfully.
+
+
+
+
+2)char data type*
+  a character data type c program
+!code
+#include &lt;stdio.h>
+
+int main() {
+    char c = 'A';
+    printf("The character is %c\n", c);
+    return 0;
+}
+In this program, we declare a <b>char</b> variable named <b>c</b> and initialize it to the character 'A'. 
+We then use the <b>printf</b> function to print out the value of <b>c</b> using the <b>%c</b> format specifier. This will output the character 'A' to the console. 
+Finally, we <b>return 0</b> to indicate that the program has completed successfully.
+
+Note that <b>char</b> is a data type in C that represents a single character. 
+Characters are enclosed in single quotes (e.g. 'A', 'B', 'C', etc.) and are typically used to represent letters, digits, or symbols.
+
+
+
+
+3)Char variable can hold different types data.*
+  A character type varibale can hold any type data
+!code
+#include &lt;stdio.h>
+
+int main() {
+    char c;
+
+    // Assigning integer value to char variable
+    c = 'A';
+    printf("The value of c is: %c\n", c);
+
+    // Assigning float value to char variable
+    c = 65.5;
+    printf("The value of c is: %c\n", c);
+
+    // Assigning string value to char variable
+    c = 'Hello';
+    printf("The value of c is: %c\n", c);
+
+    return 0;
+}
+In this example, we declare a character variable <b>c</b>. 
+We then assign different types of values to it - an integer value <b>'A'</b>, a float value <b>65.5</b>, and a string value <b>'Hello'</b>. The <b>printf</b> statement is used to print out the value of <b>c</b> in each case.
+
+Note that while it is technically possible to assign these different types of values to a character variable, it is not good programming practice and can lead to unexpected behavior. 
+It's generally best to use variables of the appropriate type for the data you are working with.
+
+
+
+
+4)Simple Math Operations.*
+  Two number being added, subtracted, multiplied and divided 
+!code
+#include &lt;stdio.h>
+
+int main()
+{
+    int number1, number2;
+    number1 = 12;
+    number2 = 4;
+
+    printf("number1 + number2 = %d\n", number1 + number2);
+    printf("number1 - number2 = %d\n", number1 - number2);
+    printf("number1 * number2 = %d\n", number1 * number2);
+    printf("number1 / number2 = %d\n", number1 / number2);
+
+    return 0;
+}
+This code declares two integer variables (<b>number1</b> and <b>number2</b>), initializes them to the values <b>12</b> and <b>4</b>, respectively, and then performs four basic arithmetic operations on them using the <b>+, -, *, and /</b> operators.
+The <b>printf</b> function is used to print the results of each operation to the console. 
+The format specifier <b>%d</b> is used to indicate that an integer value should be printed in place of the specifier, and the escape sequence <b>\n</b> is used to insert a newline character after each line.
+The subtraction operation <b>(number1 + number2)</b> add the value of <b>number1</b> with <b>number2</b>,
+The subtraction operation <b>(number1 - number2)</b> subtracts the value of <b>number2</b> from <b>number1</b>, and 
+the multiplication operation <b>(number1 * number2)</b> multiplies the values of <b>number1</b> and <b>number2</b> together.
+The division operation <b>(number1 / number2)</b> divides the values of <b>number1</b> and <b>number2</b>.
+
+
+
+
+
+5)Simple Math Operations with new variable result.*
+  Two number being added, subtracted, multiplied and divided.And a new variable called result
+!code
+#include &lt;stdio.h>
+
+int main()
+{
+    int number1, number2, result;
+
+    // Initialize variables
+    number1 = 12;
+    number2 = 4;
+
+    // Perform addition
+    result = number1 + number2;
+    printf("number1 + number2 = %d\n", result);
+
+    // Perform subtraction
+    result = number1 - number2;
+    printf("number1 - number2 = %d\n", result);
+
+    // Perform multiplication
+    result = number1 * number2;
+    printf("number1 * number2 = %d\n", result);
+
+    // Perform division
+    result = number1 / number2;
+    printf("number1 / number2 = %d\n", result);
+
+    return 0;
+}
+In this code, we declare three integer variables: <b>number1</b>, <b>number2</b>, and <b>result</b>. We initialize <b>number1</b> and <b>number2</b> to <b>12</b> and <b>4</b>, respectively.
+
+For each arithmetic operation, we assign the result to the result variable using the appropriate operator <b>(+, -, *, /)</b>. We then print the value of result using <b>printf()</b> and the <b>%d</b> format specifier.
+
+At the end of the program, we <b>return 0</b> to indicate successful program execution.
+
+Using a separate variable to store the results of the arithmetic operations can make the code more readable and easier to understand, especially when there are many calculations involved. 
+Additionally, it allows us to reuse the results later in the program if needed.
+
+
+
+
+6)C Program User Input.*
+  c program which takes two number as inputs from the user then will print the sum of the two numbers as output
+!code
+#include &lt;stdio.h>
+
+int main() {
+    int num1, num2, sum;
+    
+    // Take input from user
+    printf("Enter first number: ");
+    scanf("%d", &num1);
+    
+    printf("Enter second number: ");
+    scanf("%d", &num2);
+    
+    // Calculate sum
+    sum = num1 + num2;
+    
+    // Print output
+    printf("Sum of %d and %d is %d", num1, num2, sum);
+    
+    return 0;
+}
+Here's how the program works:
+
+It includes the standard input/output header file <b>stdio.h</b>.
+It defines the <b>main()</b>function, which is the entry point of the program.
+It declares three integer variables: <b>num1</b>, <b>num2</b>, and <b>sum</b>.
+It prompts the user to enter the first number and reads it using <b>scanf()</b>.
+It prompts the user to enter the second number and reads it using <b>scanf()</b>.
+It calculates the sum of the two numbers using the <b>+</b> operator and stores it in the <b>sum</b> variable.
+It prints the sum of the two numbers using <b>printf()</b>.
+It <b>returns 0</b> to indicate successful execution of the program.
+
+
+
+
+7)Celsius to Fahrenheit Conversion.*
+  c program that will take temparature in celsius as input and provide output in fahrenheit units
+!code
+#include &lt;stdio.h>
+
+int main() {
+    float celsius, fahrenheit;
+
+    printf("Enter temperature in Celsius: ");
+    scanf("%f", &celsius);
+
+    fahrenheit = (celsius * 9 / 5) + 32;
+
+    printf("%.2f Celsius = %.2f Fahrenheit\n", celsius, fahrenheit);
+
+    return 0;
+}
+In this program, we first declare two variables <b>celsius</b> and <b>fahrenheit</b> of type float. 
+Then, we prompt the user to enter the temperature in Celsius using the <b>printf()</b> function and read the input value using the <b>scanf()</b> function.
+
+We then convert the temperature from Celsius to Fahrenheit using the formula <b>(celsius * 9 / 5) + 32</b> and store the result in the <b>fahrenheit</b> variable.
+
+Finally, we output the converted temperature using the <b>printf()</b> function, with formatting specifiers to show the Celsius and Fahrenheit values rounded to 2 decimal places.
+
+Note: Make sure to include the <b>stdio.h</b> header file to use the <b>printf()</b> and <b>scanf()</b> functions.
+
+
+
+
+8)Fahrenheit to Celsius Conversion*
+  C program that takes temperature in Fahrenheit as input and provides output in Celsius units
+!code
+#include &lt;stdio.h>
+
+int main() {
+    float fahrenheit, celsius;
+
+    printf("Enter temperature in Fahrenheit: ");
+    scanf("%f", &fahrenheit);
+
+    celsius = (fahrenheit - 32) * 5 / 9;
+
+    printf("%.2f Fahrenheit = %.2f Celsius\n", fahrenheit, celsius);
+
+    return 0;
+}
+In this program, we first declare two variables <b>fahrenheit</b> and <b>celsius of type float</b>. 
+Then, we prompt the user to enter the temperature in Fahrenheit using the <b>printf()</b> function and read the input value using the <b>scanf()</b> function.
+
+We then convert the temperature from Fahrenheit to Celsius using the formula <b>(fahrenheit - 32) * 5 / 9</b> and store the result in the <b>celsius</b> variable.
+
+Finally, we output the converted temperature using the <b>printf()</b> function, with formatting specifiers to show the Fahrenheit and Celsius values rounded to 2 decimal places.
+
+Note: Make sure to include the <b>stdio.h</b> header file to use the <b>printf()</b> and <b>scanf()</b> functions.
+
+
+
+
+9)Equal Number Checker.(if statement)*
+  c program that compares  between two numbers and tells if they are equal.with if statement
+!code
+#include &lt;stdio.h>
+
+int main() {
+    int num1, num2;
+
+    printf("Enter two numbers: ");
+    scanf("%d %d", &num1, &num2);
+
+    if (num1 == num2) {
+        printf("The two numbers are equal.\n");
+    }
+
+    return 0;
+}
+Explanation:
+
+We first include the <b>stdio.h</b> header file which contains the standard input/output functions.
+We declare two integer variables <b>num1</b> and <b>num2</b> to store the user input.
+We prompt the user to enter two numbers using the <b>printf</b> function and read the input using the <b>scanf</b> function.
+We compare the two numbers using the <b>if</b> statement and check if they are equal using the <b>==</b> operator.
+If the numbers are equal, we print a message to the console using the <b>printf</b> function.
+Finally, we <b>return 0</b> to indicate successful execution of the program.
+
+
+
+
+10)Equal Number Checker.(if-else statement)*
+   a C program that compares  between two numbers and tells if they are equal.with if-else statement
+!code
+#include &lt;stdio.h>
+
+int main() {
+    int num1, num2;
+
+    printf("Enter the first number: ");
+    scanf("%d", &num1);
+
+    printf("Enter the second number: ");
+    scanf("%d", &num2);
+
+    if (num1 == num2) {
+        printf("The two numbers are equal.\n");
+    } 
+    else {
+        printf("The two numbers are not equal.\n");
+    }
+
+    return 0;
+}
+Explanation:
+
+We start by including the standard input-output library <b>stdio.h</b>.
+We declare two integer variables <b>num1</b> and <b>num2</b>.
+We prompt the user to enter the first number using the <b>printf</b> statement and read the user's input using the <b>scanf</b> statement.
+We prompt the user to enter the second number using the <b>printf</b> statement and read the user's input using the <b>scanf</b> statement.
+We use an <b>if</b> statement to check whether the two numbers are equal or not. If they are equal, we print a message saying "The two numbers are equal." Otherwise, we print a message saying "The two numbers are not equal."
+Finally, we <b>return 0</b> to indicate that the program has executed successfully.
+
+
+
+
+11)c Compare Two Numbers.(else if chain statement)*
+   c program that compares  between two numbers and tells if they are equal.with else if chain statement
+!code
+#include &lt;stdio.h>
+
+int main() {
+    int num1, num2;
+
+    printf("Enter two numbers: ");
+    scanf("%d%d", &num1, &num2);
+
+    if (num1 == num2) {
+        printf("%d and %d are equal.\n", num1, num2);
+    } else if (num1 > num2) {
+        printf("%d is greater than %d.\n", num1, num2);
+    } else {
+        printf("%d is less than %d.\n", num1, num2);
+    }
+
+    return 0;
+}
+In this program, we use the <b>if</b> statement to check if the two numbers are equal. If they are, we print a message saying so. 
+If they are not equal, we use an <b>else if</b> chain to check which number is greater, and we print a message accordingly.
+
+Note that in the <b>scanf</b> function call, we use the format string </b>%d%d</b> to read in two integers from the user. 
+We also use the variables <b>num1</b> and <b>num2</b> to store the values entered by the user.
+
+
+
+
+12)Grade by marks*
+  assume we will take a students exam maeks as input.then we will display his or hers letter grade depending on the marks as output
+!code
+#include &lt;stdio.h>
+
+int main() {
+    int marks;
+    printf("Enter your exam marks: ");
+    scanf("%d", &marks);
+    
+    if (marks >= 90) {
+        printf("Your grade is A\n");
+    } else if (marks >= 80) {
+        printf("Your grade is B\n");
+    } else if (marks >= 70) {
+        printf("Your grade is C\n");
+    } else if (marks >= 60) {
+        printf("Your grade is D\n");
+    } else {
+        printf("Your grade is F\n");
+    }
+    
+    return 0;
+}
+In this program, we first declare a variable called <b>marks</b> to store the input marks from the user. 
+We then prompt the user to enter their exam marks using <b>printf</b> and read the input using <b>scanf</b>.
+
+Next, we use a series of <b>if</b> and <b>else if</b> statements to determine the letter grade based on the input marks. 
+If the marks are greater than or equal to 90, the grade is A; if they're between 80 and 89, the grade is B; and so on. 
+Finally, we use <b>printf</b> to display the letter grade to the user.
+
+Note that this program assumes that the user enters a valid integer for the marks. If you want to make the program more robust, 
+you could add some error checking to ensure that the input is valid.
+
+
+
+
+13)Age eligibility checker*
+  c program that will take the applicant's age as input and will output if the applicant is eligible to apply or not
+!code
+#include &lt;stdio.h>
+
+int main() {
+    int age;
+
+    printf("Enter your age: ");
+    scanf("%d", &age);
+
+    if (age >= 18) {
+        printf("You are eligible to apply.\n");
+    } else {
+        printf("You are not eligible to apply.\n");
+    }
+
+    return 0;
+}
+In this program, we first declare an integer variable <b>age</b> to store the user's input. 
+We then prompt the user to enter their age using <b>printf()</b> and read in their input using <b>scanf()</b>.
+Next, we use an <b>if</b> statement to check if the age entered is greater than or equal to 18. 
+If it is, we output the message "You are eligible to apply." 
+If it is not, we output the message "You are not eligible to apply."
+Finally, we <b>return 0</b> to indicate successful program execution.
+
+
+
+
+14)FizzBuzz C Program*
+   c program that takes a number as input. if the iput is divisible by 3 the the program will print Fizz and if the input is divisible by 5 then the program will print Buzz.if the input is divisible by both 3 and 5 then the program will print FizzBuzz
+!code
+#include &lt;stdio.h>
+
+int main() {
+    int num;
+
+    printf("Enter a number: ");
+    scanf("%d", &num);
+
+    if (num % 3 == 0 && num % 5 == 0) {
+        printf("FizzBuzz");
+    }
+    else if (num % 3 == 0) {
+        printf("Fizz");
+    }
+    else if (num % 5 == 0) {
+        printf("Buzz");
+    }
+    else {
+        printf("%d", num);
+    }
+
+    return 0;
+}
+Explanation:
+
+The program takes an integer input from the user using the <b>scanf</b> function and stores it in the <b>num</b> variable.
+The program checks if <b>num</b> is divisible by both 3 and 5 using the condition <b>num % 3 == 0 && num % 5 == 0</b>. If it is, then the program prints "FizzBuzz" using the <b>printf</b> function.
+If <b>num</b> is not divisible by both 3 and 5, the program checks if it is divisible by 3 using the condition <b>num % 3 == 0</b>. If it is, then the program prints "Fizz" using the <b>printf</b> function.
+If <b>num</b> is not divisible by 3 or both 3 and 5, the program checks if it is divisible by 5 using the condition <b>num % 5 == 0</b>. If it is, then the program prints "Buzz" using the <b>printf</b> function.
+If <b>num</b> is not divisible by 3, 5, or both 3 and 5, then the program simply prints the value of <b>num</b> using the <b>printf</b> function.
+Note: The program assumes that the input number is an integer. If the user inputs a non-integer value, the program behavior is undefined.
+
+
+
+15)C program prints 5 times(while loop)*
+c program that will print the words 'I Love Bangladesh' 5 times 
+!code
+#include &lt;stdio.h>
+
+int main() {
+   int i = 0;
+   while(i < 5) {
+      printf("I Love Bangladesh\n");
+      i++;
+   }
+   return 0;
+}
+The <b>while</b> loop will execute the <b>printf</b> statement as long as the condition <b>i < 5</b> is true. Inside the loop, the <b>printf</b> statement will print the words "I Love Bangladesh" followed by a newline character <b>(\n)</b>. After each iteration of the loop, the value of <b>i</b> is incremented by one until <b>i</b> reaches 5.
+
+
+
+16)C program prints 100 times "I Love Bangladesh"(while loop)"
+c program that will print the words 'I Love Bangladesh' 100 times
+!code
+#include &lt;stdio.h>
+
+int main() {
+   int i = 0;
+   while(i < 100) {
+      printf("I Love Bangladesh\n");
+      i++;
+   }
+   return 0;
+}
+The while loop will execute the printf statement as long as the condition i < 100 is true. Inside the loop, the printf statement will print the words "I Love Bangladesh" followed by a newline character (\n). After each iteration of the loop, the value of i is incremented by one until i reaches 100.
+
+
+
+
+17)Print numbers from 1-100(while loop).
+   a program that will print every number from 1 to 100.
+!code
+#include &lt;stdio.h>
+
+int main() {
+    int i = 1;
+    while(i <= 100) {
+        printf("%d\n", i);
+        i++;
+    }
+    return 0;
+}
+This program initializes the variable <b>i</b> to 1 and uses a while loop to print every number from 1 to 100. Inside the loop, the program prints the value of i using the <b>%d</b> format specifier and then increments <b>i</b> by 1. The loop continues until <b>i</b> is no longer less than or equal to 100. The program ends by returning 0 to indicate that it has executed successfully.
+
+
+
+
+18)Even numbers between 1-100(while loop)*
+a c program that will print all even number between 1 and 100 
+!code
+#include &lt;stdio.h>
+
+int main() {
+    int i = 1;
+    while(i <= 100) {
+        if(i % 2 == 0) {
+            printf("%d ", i);
+        }
+        i++;
+    }
+    return 0;
+}
+In this program, we use a while loop to iterate through all numbers between 1 and 100. We start by setting <b>i</b> to 1, and then we use a while loop to continue looping while <b>i</b> is less than or equal to 100. Inside the loop, we use an if statement to check if <b>i</b> is even. If it is even, we use printf to print the number to the console. Finally, we increment <b>i</b> by 1 at the end of each loop iteration using <b>i++</b>.
+
+
+
+
+19)C program outputs integer sum(while loop)*
+a c program that will output the sum of every integer number from 1 to 100
+!code
+#include &lt;stdio.h>
+
+int main() {
+    int i = 1, sum = 0;
+    while (i <= 100) {
+        sum += i;
+        i++;
+    }
+    printf("The sum of every integer number from 1 to 100 is: %d\n", sum);
+    return 0;
+}
+This program initializes two variables, <b>i</b> and <b>sum</b>, to 1 and 0 respectively. It then uses a <b>while</b> loop to iterate over every integer number from 1 to 100, adding each number to <b>sum</b> along the way, and incrementing <b>i</b> after each iteration. Finally, it uses <b>printf()</b> to print out the sum.
+
+20)C program with do-while loop.
+a program that will print every number from 1 to 100
+!code
+#include &lt;stdio.h>
+
+int main() {
+    int i = 1;
+    do {
+        printf("%d\n", i);
+        i++;
+    } while (i <= 100);
+    return 0;
+}
+In this program, we initialize a counter variable <b>i</b> to 1 and then use a do-while loop to print the value of <b>i</b> and increment it by 1 until <b>i</b> reaches 100. The loop condition is checked at the end of each iteration, so the loop body will always execute at least once, ensuring that the number 1 is printed. The <b>printf</b> function is used to print the value of <b>i</b> followed by a newline character <b>(\n)</b> to separate each number on a new line.
+
+
+
+
+21)C program: sum odd numbers(while loop)
+a c program  that will output the sum of all odd numbers from 1 to 500
+!code
+#include &lt;stdio.h>
+
+int main() {
+    int sum = 0;
+    int i = 1;
+    while (i <= 500) {
+        if (i % 2 == 1) {
+            sum += i;
+        }
+        i++;
+    }
+    printf("The sum of all odd numbers from 1 to 500 is %d\n", sum);
+    return 0;
+}
+In this program, we use a <b>while</b> loop to iterate over all numbers from 1 to 500. For each number, we check if it is odd by checking if its remainder when divided by 2 is 1. If the number is odd, we add it to a running total <b>sum</b>. We continue the loop until we have checked all numbers from 1 to 500. Once the loop is finished, we print the value of <b>sum</b>.
+
+
+
+22)C program outputs integer sum(for loop)
+c program that will output the sum of every integer number from 1 to 100
+!code
+#include &lt;stdio.h>
+
+int main() {
+    int sum = 0;
+    for (int i = 1; i <= 100; i++) {
+        sum += i;
+    }
+    printf("The sum of every integer number from 1 to 100 is: %d\n", sum);
+    return 0;
+}
+This program initializes a variable <b>sum</b> to 0, and then uses a <b>for</b> loop to iterate over every integer number from 1 to 100, adding each number to <b>sum</b> along the way. Finally, it uses <b>printf()</b> to print out the sum.
+
+
+
+23)C program prints 5 times "I Love Bangladesh"(for loop)
+c program that will print the words 'I Love Bangladesh' 5 times
+!code
+#include &lt;stdio.h>
+
+int main() {
+   int i;
+   for(i=0; i<5; i++) {
+      printf("I Love Bangladesh\n");
+   }
+   return 0;
+}
+The <b>for</b> loop will execute the <b>printf</b> statement five times, and each time it will print the words "I Love Bangladesh" followed by a newline character <b>(\n)</b>.
+
+
+
+
+24)C program prints 100 times "I Love Bangladesh"(for loop)
+!code
+#include &lt;stdio.h>
+
+int main() {
+   int i;
+   for(i=0; i<100; i++) {
+      printf("I Love Bangladesh\n");
+   }
+   return 0;
+}
+The <b>for</b> loop will execute the <b>printf</b> statement 100 times, and each time it will print the words "I Love Bangladesh" followed by a newline character <b>(\n)</b>.
+
+
+
+
+25)Print numbers from 1-100(for loop)
+write a c program that will print every number from 1 to 100
+!code
+#include &lt;stdio.h>
+
+int main() {
+    int i;
+    for(i = 1; i <= 100; i++) {
+        printf("%d\n", i);
+    }
+    return 0;
+}
+This program uses a for loop to iterate from 1 to 100 and print each number to the console. The <b>%d</b> format specifier is used to print integers, and <b>\n</b> is used to print a newline character after each number. The program ends by returning 0 to indicate that it has executed successfully.
+
+
+
+
+26)Even numbers between 1-100(for loop).
+a c program that will print all even number between 1 and 100
+!code
+#include &lt;stdio.h>
+
+int main() {
+    int i;
+    for(i = 1; i <= 100; i++) {
+        if(i % 2 == 0) {
+            printf("%d ", i);
+        }
+    }
+    return 0;
+}
+In this program, we use a for loop to iterate through all numbers between 1 and 100. For each number, we use an if statement to check if it is even (i.e. if it is divisible by 2). If it is even, we use printf to print the number to the console.
+
+Note that we start the loop at 1 instead of 0, since we only want to print even numbers.
+
+
+
+
+27)C Program with continue statement
+write a c program using continue statement
+!code
+#include &lt;stdio.h>
+
+int main() {
+    int i;
+
+    // Print numbers from 1 to 10, skipping even numbers
+    for (i = 1; i <= 10; i++) {
+        if (i % 2 == 0) {
+            continue; // Skip even numbers
+        }
+        printf("%d\n", i);
+    }
+
+    return 0;
+}
+In this program, the <b>continue</b> statement is used inside a <b>for</b> loop to skip over even numbers and only print odd numbers from 1 to 10. When the <b>continue</b> statement is encountered, the loop immediately jumps to the next iteration without executing any statements that come after it.
+
+
+
+
+28)Multiplication Table Program.
+a multiplication table C Program using for loop
+!code
+#include &lt;stdio.h>
+
+int main() {
+    int i, j, rows, columns;
+    
+    printf("Enter number of rows and columns: ");
+    scanf("%d %d", &rows, &columns);
+    
+    for (i = 1; i <= rows; i++) {
+        for (j = 1; j <= columns; j++) {
+            printf("%d\t", i * j);
+        }
+        printf("\n");
+    }
+    
+    return 0;
+}
+This program prompts the user to enter the number of rows and columns they want in their multiplication table. It then uses two nested for loops to print out the multiplication table. The outer for loop runs <b>rows</b> times and the inner for loop runs <b>columns</b> times. For each row and column, it calculates the product of the row and column numbers and prints it out with a tab character <b>\t</b> in between. After printing out all the numbers in a row, it moves to the next row by printing a newline character <b>\n</b>.
+</pre>
+</body>
+</html>
