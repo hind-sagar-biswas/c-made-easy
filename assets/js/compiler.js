@@ -1,8 +1,28 @@
 const terminal = document.getElementById("console");
 const executor = document.getElementById("execute");
+const stdinput = document.getElementById("stdin");
+
 var editor;
 
+function checkDailyLimit() {
+	const xhttp = new XMLHttpRequest();
+	xhttp.onload = function () {
+		const res = JSON.parse(this.responseText);
+		if (res.remaining == 0) {
+			executor.style.display = 'none';
+			terminal.innerHTML = `<span class="yellow bold">&gt; </span> <span class="red bold">Daily limit reached! Limit refreshes at 12:00AM UTC.</span>`;
+		}
+	};
+	xhttp.open("POST", "./scripts/includes/jdoodle_limit.php");
+	xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+	xhttp.send(``);
+}
+
 function run(code) {
+	code = encodeURIComponent(code);
+	let stdin = "";
+	if (stdinput.value != "") stdin = `&stdin=${stdinput.value}`;
+
 	const xhttp = new XMLHttpRequest();
 	xhttp.onload = function () {
 		const res = JSON.parse(this.responseText);
@@ -10,18 +30,21 @@ function run(code) {
 	};
 	xhttp.open("POST", "./scripts/includes/compiler.php");
 	xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-	xhttp.send(`code=${code}`);
+	xhttp.send(`code=${code}${stdin}`);
 }
 
 function showOutput(res) {
-	const output = `<xmp>${res.output}</xmp>`;
+	const receivedOutput = res.output;
+	const output = decodeURIComponent(
+		encodeURIComponent(receivedOutput)
+			.replace(/%0A/g, "<br>")
+			.replace(/%20/g, "&nbsp;")
+	);
 	const status = res.statusCode;
-	console.log(status);
 	const mem = res.memory;
 	const cpuTime = res.cpuTime;
 
-
-	terminal.innerHTML = `<span class="yellow bold">&gt; </span> ${output} <hr> <span class="grey itallic small">Took ${cpuTime}s to execute.</span>`;
+	terminal.innerHTML = `<span class="yellow bold">&gt; </span> make -s <br> <span class="yellow bold">&gt; </span> ./main <br> ${output} <br> <span class="grey itallic small">Took ${cpuTime}s to execute.</span>`;
 }
 
 // Configure the loader with the base URL for the Monaco Editor scripts
@@ -286,6 +309,7 @@ require(["vs/editor/editor.main"], function () {
 });
 
 window.addEventListener("load", () => {
+	checkDailyLimit();
 	executor.addEventListener("click", () => {
 		const code = editor.getValue();
 		run(code);

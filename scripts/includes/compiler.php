@@ -1,10 +1,17 @@
 <?php
 require_once __DIR__ . '\..\classes\compiler.class.php';
 
+$stdin = null;
 $script = '#include <stdio.h>
                 int main() { printf("Hello, world!"); return 0;}';
-$compiler = new Compiler();
+
 if (isset($_POST['code'])) {
     $script = $_POST['code'];
+    if (isset($_POST['stdin'])) {
+        $stdin = $_POST['stdin'];
+    }
 }
-echo json_encode($compiler->execute($script));
+
+$compiler = new Compiler();
+$response = $compiler->execute($script, $stdin);
+echo json_encode($response);

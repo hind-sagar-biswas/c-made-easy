@@ -19,29 +19,14 @@
 
 </head>
 
-<body class="line-numbers">
+<body>
 
-    <style>
-        .container {
-            display: flex;
-            max-width: calc(100vw - 40px);
-            margin: auto;
-            border-top: 10px solid #1d1f21;
-            border-right: 10px solid #1d1f21;
-        }
-        #editor{
-            width: 60%;
-            height: 80vh;
-        }
-        #console-container{
-            width: 40%;
-        }
-    </style>
-    <center><h4>C Programming IDE</h4></center>
+    <center><h4 class="page-title">C Programming IDE</h4></center>
     <div class="container">
         <div id="editor"></div>
         <div class="console" id="console-container">
             <div id="toolbar">
+                <input type="text" name="stdin" id="stdin" placeholder="Expected Input">
                 <button id="execute">EXECUTE CODE</button>
             </div>
             <div id="console"></div>

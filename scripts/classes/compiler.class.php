@@ -22,10 +22,13 @@ class Compiler
     }
 
 
-    public function execute(string $script)
+    public function execute(string $script, string|null $stdin = null)
     {
+        $this->data['stdin'] = $stdin;
         $this->data['script'] = $script;
         $this->http['content'] = json_encode($this->data);
+
+        // var_dump($this->data);
 
         $options = array(
             'http' => $this->http
@@ -34,6 +37,7 @@ class Compiler
         $context = stream_context_create($options);
         $result = file_get_contents($this->url, false, $context);
         $response = json_decode($result, true);
+        $response['statusCode'] = $script;
         return $response;
     }
 
