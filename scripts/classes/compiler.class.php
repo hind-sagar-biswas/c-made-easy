@@ -3,8 +3,8 @@
 class Compiler
 {
     private $url = 'https://api.jdoodle.com/v1/execute';
-    private $clientId = '';
-    private $clientSecret = '';
+    private $clientId = '8c1995581bbec61ef4cc55012f5ddb85';
+    private $clientSecret = 'b298c82b0bf672935deb4594b96cd25eac90db30b83f39bd4778476395228822';
     private $dailyLimit = 200;
     private $language = 'c';
     private $data = array('versionIndex' => '0',);

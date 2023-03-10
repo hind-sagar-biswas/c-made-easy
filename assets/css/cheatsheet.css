@@ -13,6 +13,53 @@ body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
+nav {
+  background-color: #111111;
+  margin: 0;
+  width: calc(100% - 20px);
+  padding: 20px 10px;
+  margin-bottom: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+nav #logo {
+  font-size: xx-large;
+  cursor: pointer;
+}
+nav #logo a {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  text-decoration: none;
+  color: #ffffff;
+}
+nav #menu {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 10px;
+}
+nav #menu .nav-link {
+  color: #0ba1d4;
+  text-decoration: none;
+  text-transform: uppercase;
+  display: inline-block;
+  padding: 5px 10px;
+  border-bottom: 4px solid #0ba1d4;
+  min-width: 150px;
+  transition: all 0.3s;
+}
+nav #menu .nav-link:hover {
+  background-color: #1d1f21;
+}
+nav #menu .nav-link.active {
+  font-weight: bold;
+  border-bottom: 4px solid #087ca4;
+  background-color: #0ba1d4;
+  color: #111111;
+}
+
 aside {
   margin: 0;
   padding-top: 20px;
@@ -149,6 +196,10 @@ summary {
   font-weight: bold;
 }
 
+.courier {
+  font-family: "Courier New", Courier, monospace;
+}
+
 .blue {
   color: #0ba1d4;
 }
@@ -187,6 +238,7 @@ summary {
   margin: auto;
   border-top: 10px solid #1d1f21;
   border-right: 10px solid #1d1f21;
+  margin-bottom: 10px;
 }
 
 #editor {
@@ -283,10 +335,48 @@ summary {
   }
 }
 @media only screen and (max-device-width: 480px) {
+  * {
+    border: 1px solid red;
+  }
+  body {
+    width: 100vw;
+    max-width: 100vw;
+    border-color: #0ba1d4;
+  }
+  nav {
+    background-color: #111111;
+    margin: 0;
+    width: calc(100% - 40px);
+    padding: 20px 10px;
+    margin-bottom: 40px;
+    display: block;
+  }
+  nav #logo {
+    font-size: xx-large;
+    cursor: pointer;
+  }
+  nav #logo a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: #ffffff;
+  }
+  nav #menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: start;
+    gap: 10px;
+  }
+  nav #menu .nav-link {
+    width: 100%;
+  }
   .container {
     display: block;
     max-width: calc(100vw - 40px);
-    margin: auto;
+    margin: 0px;
+    padding: 0;
   }
   #editor {
     width: 100%;
@@ -304,7 +394,6 @@ summary {
   #console-container #toolbar {
     background-color: transparent;
     border-radius: 5px 0px 0px 5px;
-    margin-bottom: 10px;
     padding: 10px;
   }
   #console-container #toolbar #stdin {

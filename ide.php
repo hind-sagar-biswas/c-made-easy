@@ -7,7 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cheatsheet | C Programming for HSC</title>
 
-    <!-- <link href="./assets/prism/prism.css" rel="stylesheet" /> -->
     <link rel="stylesheet" href="./assets/css/cheatsheet.css">
 
 
@@ -20,8 +19,14 @@
 </head>
 
 <body>
-
-    <center><h4 class="page-title">C Programming IDE</h4></center>
+    <nav>
+        <div id="logo"><a href="index.html"><span class="blue bold courier">{</span><span class="bold">C</span><span class="blue bold courier">}</span></a></div>
+        <div id="menu">
+            <a href="cheatsheet.php" class="nav-link">Cheatsheet</a>
+            <a href="#" class="nav-link">Exersice</a>
+            <a href="ide.html" class="nav-link active">IDE</a>
+        </div>
+    </nav>
     <div class="container">
         <div id="editor"></div>
         <div class="console" id="console-container">

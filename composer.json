@@ -1,0 +1,18 @@
+{
+    "name": "hinds/c-made-easy",
+    "type": "project",
+    "require": {
+        "phpmailer/phpmailer": "^6.8"
+    },
+    "autoload": {
+        "psr-4": {
+            "Hinds\\CMadeEasy\\": "scripts/classes/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Hind Sagar Biswas",
+            "email": "hindsbhk@gmail.com"
+        }
+    ]
+}
