@@ -2,7 +2,8 @@
     "name": "hinds/c-made-easy",
     "type": "project",
     "require": {
-        "phpmailer/phpmailer": "^6.8"
+        "phpmailer/phpmailer": "^6.8",
+        "league/oauth2-google": "^4.0"
     },
     "autoload": {
         "psr-4": {
