@@ -22,7 +22,7 @@ class Compiler
     }
 
 
-    public function execute(string $script, string|null $stdin = null)
+    public function execute(string $script, $stdin = null)
     {
         $this->data['stdin'] = $stdin;
         $this->data['script'] = $script;

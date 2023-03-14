@@ -1,12 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
-</html>
+<?php
+
+require_once __DIR__ . '\scripts\classes\mail.class.php';
+
+$senderEmail = 'ryoutaroshinigami@gmail.com';
+$senderName = 'Shinigami Ryoutaro';
+
+$mailSender = new MailSender();
+
+$subject = 'Test Email';
+$message = 'This is a test email sent using the built-in mail() function.';
+
+try {
+    $mailSender->send($senderEmail, $senderName, $subject, $message);
+    echo 'Email sent successfully';
+} catch (Exception $e) {
+    echo 'Unable to send email: ' . $e->getMessage();
+}

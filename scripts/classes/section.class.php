@@ -38,7 +38,7 @@ class Section extends Dbh
         return $result;
     }
 
-    public function get_section($serial): mixed
+    public function get_section($serial)
     {
         if (!$this->check_exists($serial, 'serial')) return [];
         

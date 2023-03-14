@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '\..\classes\compiler.class.php';
+require_once __DIR__ . '/../classes/compiler.class.php';
 
 $stdin = null;
 $script = '#include <stdio.h>

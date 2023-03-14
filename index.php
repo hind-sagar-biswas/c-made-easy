@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>C for HSC | The code raptors</title>
 
-    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href ="./assets/css/style.css">
 
     <script src="https://kit.fontawesome.com/c9fec141b0.js" crossorigin="anonymous"></script>
 </head>
@@ -15,7 +15,7 @@
 <body>
     <center id="main-cont">
         <div id="abs">
-        <a href="#" id="start-code"><i class="fa-solid fa-code"></i> <span class="hide-screen">ONLINE EDITOR</span></a>
+        <a href="./ide.php" id="start-code"><i class="fa-solid fa-code"></i> <span class="hide-screen">ONLINE EDITOR</span></a>
         <a href="#" id="log"><i class="fa-solid fa-right-to-bracket"></i></a>
         </div>
         <p id="banner">
@@ -46,7 +46,7 @@
             </p>
         </div>
         <div id="actions">
-            <a id="blue" href="#" target="_blank" rel="noopener noreferrer"><button>CHEATSHEET</button></a>
+            <a id="blue" href="./cheatsheet.php" target="_blank" rel="noopener noreferrer"><button>CHEATSHEET</button></a>
             <a id="red" href="#" target="_blank" rel="noopener noreferrer"><button>PROBLEMS</button></a>
         </div>
     </center>

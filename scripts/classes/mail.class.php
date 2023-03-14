@@ -1,76 +1,44 @@
-<?php
 
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\Exception;
-use League\OAuth2\Client\Provider\Google;
+<?php
 
 class MailSender
 {
+    private $recipientEmail = "thecoderaptors0@gmail.com";
+    private $backupDir = __DIR__ . '/../../backups/';
 
-    private $client;
-    private $accessToken;
-
-    private $clientId = "";
-    private $clientSecret = "";
-    private $redirectUri = "";
-    private $refreshToken = "";
-
-
-    public function __construct($clientId = null, $clientSecret = null, $redirectUri = null, $refreshToken = null)
+    public function __construct($backupDir = null)
     {
-        $clientId = ($clientId == null) ? $this->clientId : $clientId;
-        $clientSecret = ($clientSecret == null) ? $this->clientSecret : $clientSecret;
-        $redirectUri = ($redirectUri == null) ? $this->redirectUri : $redirectUri;
-        $refreshToken = ($refreshToken == null) ? $this->refreshToken : $refreshToken;
-
-        // Create a new Google OAuth2 client
-        $this->client = new Google([
-            'clientId' => $clientId,
-            'clientSecret' => $clientSecret,
-            'redirectUri' => $redirectUri,
-        ]);
-
-        // Get an access token using the provided refresh token
-        $this->accessToken = $this->client->getAccessToken('refresh_token', [
-            'refresh_token' => $refreshToken,
-        ]);
+        if ($backupDir != null) $this->backupDir = $backupDir;
     }
 
-    public function send($senderName, $senderEmail, $recipientEmail, $subject, $message)
+    public function send($senderEmail, $senderName, $subject, $message, $mailType = "test", $recipientEmail = null)
     {
-        try {
-            // Create a new PHPMailer instance
-            $mail = new PHPMailer(true);
+        $recipientEmail = ($recipientEmail != null) ? $recipientEmail : $this->recipientEmail;
+        $headers = 'From: ' . $senderName . ' <' . $senderEmail . ">\r\n" .
+            'Reply-To: ' . $senderEmail . "\r\n" .
+            'X-Mailer: PHP/' . phpversion();
 
-            // Configure SMTP
-            $mail->isSMTP();
-            $mail->Host = 'smtp.gmail.com';
-            $mail->SMTPAuth = true;
-            $mail->SMTPSecure = 'tls';
-            $mail->Port = 587;
+        $isSent = mail($recipientEmail, $subject, $message, $headers);
 
-            // Set OAuth2 authentication
-            $mail->setOAuth2Client($this->client);
-            $mail->setAccessToken($this->accessToken);
+        // Save email details in backup files
+        if ($this->backupDir !== null) {
+            $backupPath = rtrim($this->backupDir, '/') . '/mails/';
 
-            // Set the sender's name and email address
-            $mail->setFrom($senderEmail, $senderName);
-
-            // Set the recipient's email address
-            $mail->addAddress($recipientEmail);
-
-            // Set the email subject and body
-            $mail->Subject = $subject;
-            $mail->Body = $message;
-
-            // Send the email
-            if (!$mail->send()) {
-                throw new Exception('Unable to send email. ' . $mail->ErrorInfo);
-            } else {
-                return true;
+            // Create backup directory if it doesn't exist
+            if (!is_dir($backupPath)) {
+                mkdir($backupPath, 0777, true);
             }
-        } catch (Exception $e) {
-            throw new Exception('Unable to send email. ' . $e->getMessage());
+
+            $filename = $backupPath . $mailType . "_" . ($isSent ? 'ok' : 'err') . '.txt';
+            $content = date('Y-m-d_H-i-s_') . "\nTo: {$recipientEmail}\nSubject: {$subject}\n\n{$message}\n============================\n";
+
+            file_put_contents($filename, $content, FILE_APPEND);
+        }
+
+        if ($isSent) {
+            return true;
+        } else {
+            throw new Exception('Message could not be sent.');
         }
     }
 }

@@ -7,13 +7,14 @@ var editor;
 function checkDailyLimit() {
 	const xhttp = new XMLHttpRequest();
 	xhttp.onload = function () {
+		console.log(this.responseText);
 		const res = JSON.parse(this.responseText);
 		if (res.remaining == 0) {
 			executor.style.display = 'none';
 			terminal.innerHTML = `<span class="yellow bold">&gt; </span> <span class="red bold">Daily limit reached! Limit refreshes at 12:00AM UTC.</span>`;
 		}
 	};
-	xhttp.open("POST", "./scripts/includes/jdoodle_limit.php");
+	xhttp.open("POST", "./scripts/includes/jdoodle_limit.inc.php");
 	xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 	xhttp.send(``);
 }
@@ -28,7 +29,7 @@ function run(code) {
 		const res = JSON.parse(this.responseText);
 		showOutput(res);
 	};
-	xhttp.open("POST", "./scripts/includes/compiler.php");
+	xhttp.open("POST", "./scripts/includes/compiler.inc.php");
 	xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 	xhttp.send(`code=${code}${stdin}`);
 }

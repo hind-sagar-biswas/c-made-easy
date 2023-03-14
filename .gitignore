@@ -1,3 +1,6 @@
 node_modules/
 /vendor/
 /client_*.json
+/backups/mails/
+comp/
+tests/

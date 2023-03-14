@@ -6,7 +6,7 @@ require_once './scripts/classes/section.class.php';
 $sectioner = new Section();
 $sectionList = $sectioner->get_all_sections();
 
-require_once './scripts/includes/header.php';
+require_once './scripts/includes/header.inc.php';
 
 
 
@@ -25,4 +25,4 @@ foreach ($sectionList as $section) {
     
 </section>
 <?php
-require_once './scripts/includes/footer.php';
+require_once './scripts/includes/footer.inc.php';

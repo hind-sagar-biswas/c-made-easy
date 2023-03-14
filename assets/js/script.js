@@ -48,10 +48,10 @@ function reveal(serial) {
 			reloadPrism();
 			setTimeout(() => {
 				togglePreload();
-			}, 2000);
+			}, 300);
 		}
 	};
-	xhttp.open("POST", "./scripts/includes/get_section.php");
+	xhttp.open("POST", "./scripts/includes/get_section.inc.php");
 	xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 	xhttp.send(`sl=${serial}`);
 }

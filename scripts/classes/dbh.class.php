@@ -9,6 +9,9 @@ class Dbh extends Contr
     private $dbName = "tcr";
     private $port = 3306;
     
+    protected $userTable = "dinos";
+    protected $tokenTable = "tokens";
+    protected $testTable = "tests";
     
 
     public function setDbInfo($DB)

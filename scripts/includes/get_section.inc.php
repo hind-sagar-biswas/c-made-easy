@@ -8,4 +8,4 @@ $targetSl= $_POST['sl'];
 $sectioner = new Section();
 $section = $sectioner->get_section($targetSl);
 
-if (!empty($section)) require './section.php';
+if (!empty($section)) require './section.inc.php';

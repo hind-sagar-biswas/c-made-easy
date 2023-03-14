@@ -22,9 +22,9 @@
     <nav>
         <div id="logo"><a href="index.html"><span class="blue bold courier">{</span><span class="bold">C</span><span class="blue bold courier">}</span></a></div>
         <div id="menu">
-            <a href="cheatsheet.php" class="nav-link">Cheatsheet</a>
+            <a href="./cheatsheet.php" class="nav-link">Cheatsheet</a>
             <a href="#" class="nav-link">Exersice</a>
-            <a href="ide.html" class="nav-link active">IDE</a>
+            <a href="./ide.php" class="nav-link active">IDE</a>
         </div>
     </nav>
     <div class="container">
