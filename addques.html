@@ -4,7 +4,57 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>ADD ICT questions | Chap 5</title>
+
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+            width: 100vw;
+            background-color: white;
+
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        button, input[type='text'], textarea{
+            outline: none;
+            border: 1px solid rgb(7, 152, 219);
+            padding: 5px 10px;
+            margin: 5px;
+            /* border-radius: 5px; */
+            width: 200px;
+        }
+        input[type='text'] {
+            display: inline-block;
+        }
+        textarea {
+            display: block;
+            width: calc(225px * 4);
+        }
+        button{
+            background-color: rgb(7, 152, 219);
+            color: white;
+            transition: all 0.3s;
+        }
+        button:hover{
+            background-color: rgb(14, 124, 176);
+        }
+        #form-container, #action, #log{
+            width: 100%;
+            max-width: 1300px;
+            margin: 0 auto;
+            margin-top: 5px;
+        }
+        #log{
+            color: rgb(14, 124, 176);
+        }
+        .form-section{
+            margin-bottom: 5px;
+            padding: 5px;
+            border: 2px solid rgb(7, 152, 219);
+            border-left: 10px solid rgb(7, 152, 219);
+            background-color: aliceblue;
+        }
+    </style>
 </head>
 <body>
     <div id="log"></div>
@@ -12,17 +62,19 @@
         <form action="#" method="post" name="question-form" id="question-form">
             <div class="form-section">
                 <textarea name="question-1" id="question-1" cols="30" rows="10"></textarea>
-                <input type="text" name="question-1-option-a" id="question-1-option-a" required>
-                <input type="text" name="question-1-option-b" id="question-1-option-b" required>
-                <input type="text" name="question-1-option-c" id="question-1-option-c" required>
-                <input type="text" name="question-1-option-d" id="question-1-option-d" required>
+                <input type="text" name="question-1-option-a" id="question-1-option-a" placeholder="option a" required>
+                <input type="text" name="question-1-option-b" id="question-1-option-b" placeholder="option b" required>
+                <input type="text" name="question-1-option-c" id="question-1-option-c" placeholder="option c" required>
+                <input type="text" name="question-1-option-d" id="question-1-option-d" placeholder="option d" required>
                 <input type="checkbox" name="question-1-board" id="question-1-board" value="1">
                 <label for="question-1-board">Board question</label>
             </div>
         </form>
     </div>
-    <button id="add-new">ADD NEW</button>
-    <button id="submit">SUBMIT ALL</button>
+    <div id="action">
+        <button id="add-new">ADD NEW</button>
+        <button id="submit">SUBMIT ALL</button>
+    </div>
     <script src="./assets/js/question.js"></script>
 </body>
 </html>

@@ -24,6 +24,7 @@ function addNewQues() {
   for (let i = 1; i <= 4; i++) {
     const optionInput = document.createElement('input');
     optionInput.type = 'text';
+    optionInput.placeholder = `option ${String.fromCharCode(96 + i)}`;
     optionInput.name = `question-${questionCount}-option-${String.fromCharCode(96 + i)}`;
     optionInput.id = `question-${questionCount}-option-${String.fromCharCode(96 + i)}`;
     optionInput.required = true;
@@ -77,16 +78,16 @@ function resetAll() {
 }
 
 function submitAll() {
-    const questionArray = createQuestionArray();
-    const xhttp = new XMLHttpRequest();
-    xhttp.onload = function () {
-        const resp = this.responseText;
-        document.getElementById("log").innerHTML = resp; 
-        resetAll();
-    };
-    xhttp.open("POST", "./scripts/includes/add_questions.inc.php");
-    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xhttp.send(`ques=${questionArray}`);
+  const questionArray = encodeURIComponent(createQuestionArray());
+  const xhttp = new XMLHttpRequest();
+  xhttp.onload = function () {
+      const resp = this.responseText;
+      document.getElementById("log").innerHTML = resp; 
+      resetAll();
+  };
+  xhttp.open("POST", "./scripts/includes/add_questions.inc.php");
+  xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  xhttp.send(`ques=${questionArray}`);
 }
 
 // Add click event listener to the buttons

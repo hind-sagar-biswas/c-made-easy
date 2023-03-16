@@ -90,7 +90,7 @@ class User extends Dbh
         $profilePic = ($profilePic) ? "$profilePic" : "default.user.png";
 
         $sql = "INSERT INTO $this->userTable (username, profile_pic, first_name, last_name, email, password) VALUES('$username', '$profilePic', '$fname', '$lname', '$email', '$hashed_password')";
-        $getLastEntrySql = "SELECT id, username, email, position_id FROM $this->userTable ORDER BY id DESC LIMIT 1";
+        $getLastEntrySql = "SELECT id, username, email FROM $this->userTable ORDER BY id DESC LIMIT 1";
 
         if ($this->conn()->query($sql)) return mysqli_fetch_assoc(mysqli_query($conn, $getLastEntrySql));
         return False;

@@ -1,3 +1,4 @@
+<?php require_once './scripts/includes/config.inc.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,16 +8,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>C for HSC | The code raptors</title>
 
-    <link rel="stylesheet" href ="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
 
     <script src="https://kit.fontawesome.com/c9fec141b0.js" crossorigin="anonymous"></script>
 </head>
 
+<?php 
+$logTemp = "<a href='./log.php' id='log'><i class='fa-solid fa-right-to-bracket'></i></a>";
+if ($loggedIn) {
+    $logTemp = "
+       <a href='./' id='user'><i class='fa-solid fa-user'></i></a>
+       <a href='./log.php?l=logout' id='log'><i class='fa-solid fa-right-from-bracket'></i></a>
+    ";
+}
+
+?>
+
 <body>
     <center id="main-cont">
         <div id="abs">
-        <a href="./ide.php" id="start-code"><i class="fa-solid fa-code"></i> <span class="hide-screen">ONLINE EDITOR</span></a>
-        <a href="#" id="log"><i class="fa-solid fa-right-to-bracket"></i></a>
+            <?= $logTemp ?>
+            <a href="./ide.php" id="start-code"><i class="fa-solid fa-code"></i> <span class="hide-screen">ONLINE EDITOR</span></a>
         </div>
         <p id="banner">
             <span id="logo"><i class="fa-solid fa-c"></i></span>
@@ -38,10 +50,10 @@
                     video games
                     and image processing.
                     <br><br>
-                
-                In summary, C programming is a versatile language that can be used for a wide range of programming tasks,
-                from writing
-                low-level system software to creating high-performance applications.
+
+                    In summary, C programming is a versatile language that can be used for a wide range of programming tasks,
+                    from writing
+                    low-level system software to creating high-performance applications.
                 </span>
             </p>
         </div>

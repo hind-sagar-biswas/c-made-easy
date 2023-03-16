@@ -60,7 +60,7 @@ body {
 		top: 4vh;
 		right: 5vw;
 
-		#start-code, #log {
+		#start-code, #log, #user {
 			text-decoration: none;
 			color: $white;
 		
@@ -89,9 +89,9 @@ body {
 			}
 		}
 
-		#log {
+		#log, #user {
 			display: inline-block;
-			margin-left: 10px;
+			margin-right: 10px;
 			width: 20px;
 			aspect-ratio: 1;
 		}

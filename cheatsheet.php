@@ -1,6 +1,5 @@
 <?php
-require_once './scripts/classes/contr.class.php';
-require_once './scripts/classes/dbh.class.php';
+require_once './scripts/includes/config.inc.php';
 require_once './scripts/classes/section.class.php';
 
 $sectioner = new Section();

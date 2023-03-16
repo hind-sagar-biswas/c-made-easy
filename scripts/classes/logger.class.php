@@ -2,11 +2,6 @@
 
 class Logger extends Token
 {
-    public function __construct(bool $DEBUG = False)
-    {
-        $this->DEBUG = $DEBUG;
-    }
-
     public function login(string $nameOrMail, string $password, bool $rememberMe = false): array
     {
         if (empty($nameOrMail)) return [False, 'Error: input can\'t be empty!'];

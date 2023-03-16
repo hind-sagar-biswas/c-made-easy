@@ -1,12 +1,6 @@
 <?php
-
-function redirect_to(string $target = './', string $query = ''): void
-{
-    if (!isset($target['query']) && !empty($query)) $query = '?' . $query;
-    elseif (isset($target['query']) && !empty($query)) $query = '&' . $query;
-
-    header("Location: " . $target . $query);
-}
+require_once __DIR__ . '/./config.inc.php';
+$REF_URI = (isset($_SERVER['HTTP_REFERER'])) ? $_SERVER['HTTP_REFERER'] : './../../log.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
@@ -17,7 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if($type == 'logout') {
         $logger->logout();
         $message = urlencode('Logged out successfully!');
-        redirect_to($REF_URI, "t=1&m=$message");
+        redirect_to('root', "t=1&m=$message");
     }
 
     // Check remember me
@@ -61,7 +55,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     elseif ($type == "login-min") $redirectTarget = $REF_URI;
     else $redirectTarget = 'root';
 
-    $login = $logger->login(trim($_POST['name-or-mail']), $_POST['password'], $rememberMe);
+    $login = $logger->login(trim($_POST['username']), $_POST['password'], $rememberMe);
     $message = urldecode($login[1]);
 
     if ($login) redirect_to($redirectTarget, "t=1&m=$message");
