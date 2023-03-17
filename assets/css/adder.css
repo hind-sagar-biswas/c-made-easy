@@ -1,0 +1,58 @@
+body {
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  background-color: white;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+button,
+input[type=text],
+textarea {
+  outline: none;
+  border: 1px solid rgb(7, 152, 219);
+  padding: 5px 10px;
+  margin: 5px;
+  /* border-radius: 5px; */
+  width: 200px;
+}
+
+input[type=text] {
+  display: inline-block;
+}
+
+textarea {
+  display: block;
+  width: 900px;
+}
+
+button {
+  background-color: rgb(7, 152, 219);
+  color: white;
+  transition: all 0.3s;
+}
+
+button:hover {
+  background-color: rgb(14, 124, 176);
+}
+
+#form-container,
+#action,
+#log {
+  width: 100%;
+  max-width: 1300px;
+  margin: 0 auto;
+  margin-top: 5px;
+}
+
+#log {
+  color: rgb(14, 124, 176);
+}
+
+.form-section {
+  margin-bottom: 5px;
+  padding: 5px;
+  border: 2px solid rgb(7, 152, 219);
+  border-left: 10px solid rgb(7, 152, 219);
+  background-color: aliceblue;
+}/*# sourceMappingURL=adder.css.map */

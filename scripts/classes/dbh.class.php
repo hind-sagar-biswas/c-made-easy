@@ -12,6 +12,7 @@ class Dbh extends Contr
     protected $userTable = "dinos";
     protected $tokenTable = "tokens";
     protected $testTable = "tests";
+    protected $problemTable = "c_problems";
     
 
     public function setDbInfo($DB)

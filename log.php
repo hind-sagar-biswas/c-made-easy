@@ -8,8 +8,6 @@ if (!$loggedIn) {
     <form action="./scripts/includes/logger.inc.php" method="post">
         <button type="submit" name="logger-type" value="logout" id="submit"></button>
     </form>
-    <script>
-        document.getElementById("submit").click();
-    </script>
+    <script> document.getElementById("submit").click(); </script>
 
 <?php } else redirect_to('root'); ?>

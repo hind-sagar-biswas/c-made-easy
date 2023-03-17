@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ADD ICT solutions | Chap 5</title>
+
+    <link rel="stylesheet" href="./assets/css/adder.css">
+</head>
+
+<body>
+    <div id="log"></div>
+    <div id="form-container">
+        <form action="#" method="post" name="solution-form" id="solution-form">
+            <div class="form-section">
+                <input type="text" name="solution-1-title" id="solution-1-title" placeholder="title" required>
+                <textarea name="solution-1-problem" id="solution-1-problem" placeholder="problem" required></textarea>
+                <input type="text" name="solution-1-example-input" id="solution-1-example-input" placeholder="input" required>
+                <input type="text" name="solution-1-expected-output" id="solution-1-expected-output" placeholder="output" required>
+                <textarea name="solution-1-approach" id="solution-1-approach" placeholder="approach"></textarea>
+                <textarea name="solution-1-algorithm" id="solution-1-algorithm" placeholder="algo" rows="5"></textarea>
+                <textarea name="solution-1-code" id="solution-1-code" placeholder="code" rows="5"></textarea>
+                <textarea name="solution-1-explanation" id="solution-1-explanation" placeholder="exp" rows="5"></textarea>
+                <select name="solution-1-difficulty" id="solution-1-difficulty">
+                    <option value="beginer">beginer</option>
+                    <option value="intermediate">intermediate</option>
+                    <option value="advanced">advanced</option>
+                </select>
+                <input type="text" name="solution-1-tags" id="solution-1-tags">
+            </div>
+        </form>
+    </div>
+    <div id="action">
+        <button id="add-new">ADD NEW</button>
+        <button id="submit">SUBMIT ALL</button>
+    </div>
+    <script src="./assets/js/solution.js"></script>
+</body>
+
+</html>
