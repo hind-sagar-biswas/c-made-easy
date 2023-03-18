@@ -10,6 +10,7 @@
     <link href="./assets/prism/prism.css" rel="stylesheet" />
     <link rel="stylesheet" href="./assets/css/cheatsheet.css">
 
+    <script src="https://kit.fontawesome.com/c9fec141b0.js" crossorigin="anonymous"></script>
 
 </head>
 
@@ -25,24 +26,75 @@
         <article>
 
             <section>
-                <h2 class="section-title"></h2>
+                    <h2 class="section-title"><i class="fa-solid fa-angles-right"></i> Sum of Two Numbers</h2>
+    <div class="tags">
+                    <span class="tag">#variables</span>
+                    <span class="tag">#user input</span>
+            </div>
+    <div class="problem">
+        <div class="problem-box">
+            <i class="fa-solid fa-quote-left"></i>
+            Write a program that takes two numbers as input from the user and prints their sum. <i
+                class="fa-solid fa-quote-right"></i>
+        </div>
+        
+        <table id="input-output">
+            <tbody>
+                <tr>
+                    <th>Example Input</th>
+                    <th>Expected Output</th>
+                </tr>
+                <tr>
+                    <td>5, 7</td>
+                    <td>12</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+    <div class="subsection solution">
+        <h3 class="subsection-title">Solution</h3>
+        <h4 class="section-subtitle">Approach</h4>
+        We can solve this problem by taking two numbers as input from the user, adding them, and then printing the sum.
+        <h4 class="section-subtitle">Algorithm:</h4>
+        <ul class="algorithm">
+            <li>Step 1: Start the program.</li><li>Step 2: Declare variables num1, num2 and sum.</li><li>Step 3: Take the value of num1 as input from the user.</li><li>Step 4: Take the value of num2 as input from the user.</li><li>Step 5: Add num1 and num2 and store the result in sum.</li><li>Step 6: Print "The sum of num1 and num2 is sum."</li><li>Step 7: End the program.</li>        </ul>
 
-                <details>
-                    <summary>See Explaination</summary>
-                    
-                </details>
+        <h4 class="section-subtitle">Code:</h4>
+<pre><code class="language-c">#include <stdio.h>
 
-                
+int main() {
+   int num1, num2, sum;
+
+   printf("Input the first number: ");
+   scanf("%d", &num1);
+
+   printf("Input the second number: ");
+   scanf("%d", &num2);
+
+   sum = num1 + num2;
+
+   printf("The sum of %d and %d is %d.", num1, num2, sum);
+
+   return 0;
+}
+</code></pre>
+    <button id="try-code">TRY CODE</button>
+
+        <h4 class="section-subtitle">explanation:</h4>
+        <ul class="explanation">
+            <li>In the code, we first declare three integer variables num1, num2, and sum.</li><li>We then use the printf() function to ask the user to input the first number and store it in num1 using the scanf() function.</li><li>Similarly, we ask the user to input the second number and store it in num2 using the scanf() function.</li><li>We then add num1 and num2 and store the result in sum.</li><li>Finally, we use the printf() function to print the sum along with the input values num1 and num2 in the required format.</li>        </ul>
+
+    </div>
             </section>
+
         </article>
     </main>
 
 
-    
+
     <script src="./assets/prism/prism.js"></script>
-    <script src="./assets/js/compiler.js"></script>
-
-
+    <!-- <script src="./assets/js/compiler.js"></script> -->
 </body>
 
 </html>

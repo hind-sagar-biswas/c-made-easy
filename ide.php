@@ -1,3 +1,4 @@
+<?php require_once './scripts/includes/config.inc.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,27 +20,28 @@
 </head>
 
 <body>
-    <nav>
-        <div id="logo"><a href="index.html"><span class="blue bold courier">{</span><span class="bold">C</span><span class="blue bold courier">}</span></a></div>
-        <div id="menu">
-            <a href="./cheatsheet.php" class="nav-link">Cheatsheet</a>
-            <a href="#" class="nav-link">Exersice</a>
-            <a href="./ide.php" class="nav-link active">IDE</a>
-        </div>
-    </nav>
-    <div class="container">
+    <?php require_once __DIR__ . '/scripts/includes/nav.inc.php'; ?>
+    <div class="container" style="margin-top:30px;">
         <div id="editor"></div>
         <div class="console" id="console-container">
             <div id="toolbar">
                 <input type="text" name="stdin" id="stdin" placeholder="Expected Input">
-                <button id="execute">EXECUTE CODE</button>
+                <?php if ($loggedIn) : ?>
+                    <button id="execute">EXECUTE CODE</button>
+                <?php endif; ?>
             </div>
-            <div id="console"></div>
+            <div id="console">
+                <?php if (!$loggedIn) : ?>
+                    <span class="red">LOG IN first to execute any code.</span>
+                <?php endif; ?>
+            </div>
         </div>
     </div>
+
+
+
+
     <script src="./assets/js/compiler.js"></script>
-
-
 </body>
 
 </html>

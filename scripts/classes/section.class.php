@@ -2,10 +2,6 @@
 
 class Section extends Dbh
 {
-    public function __construct(bool $DEBUG = False)
-    {
-        $this->DEBUG = $DEBUG;
-    }
 
     public function check_exists($value, $key = 'id')
     {

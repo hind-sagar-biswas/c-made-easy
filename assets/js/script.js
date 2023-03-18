@@ -8,13 +8,18 @@ if (url.search != "") {
 }
 ///////////////////////////////////////////////
 
-var lastSl = null;
+// Req Setup /////////////////////////////////
+let type = document.getElementById("file-type").value;
+let targetFile = "get_section.inc.php";
+///////////////////////////////////////////////
+
+let lastSl = null;
 const container = document.getElementById("container");
 const loader = document.getElementById("load-cover");
 
-var scriptTag = document.createElement("script");
+let scriptTag = document.createElement("script");
 scriptTag.src = `./assets/prism/prism.js`;
-var head = document.getElementsByTagName("head")[0];
+let head = document.getElementsByTagName("head")[0];
 head.appendChild(scriptTag);
 
 function togglePreload() {
@@ -23,7 +28,7 @@ function togglePreload() {
 
 function reloadPrism() {
 	head.removeChild(scriptTag);
-	var newScriptTag = document.createElement("script");
+	let newScriptTag = document.createElement("script");
 	newScriptTag.src = scriptTag.src;
 	head.appendChild(newScriptTag);
 	scriptTag = newScriptTag;
@@ -51,11 +56,27 @@ function reveal(serial) {
 			}, 300);
 		}
 	};
-	xhttp.open("POST", "./scripts/includes/get_section.inc.php");
+	xhttp.open("POST", `./scripts/includes/${targetFile}`);
 	xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 	xhttp.send(`sl=${serial}`);
 }
 
+function getFirstProblemId() {
+
+	const xhttp = new XMLHttpRequest();
+	xhttp.onload = function () {
+		sl = parseInt(this.responseText);
+		reveal(sl);
+	};
+	xhttp.open("POST", `./scripts/includes/${targetFile}`);
+	xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+	xhttp.send(`gf=1`);
+}
+
 window.addEventListener("load", () => {
-	reveal(sl);
+	if (type == "problems") {
+		targetFile = "get_solution.inc.php";
+		if (sl == 1) getFirstProblemId();
+	} else reveal(sl);
+	
 });

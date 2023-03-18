@@ -1,7 +1,7 @@
 <?php
-require_once __DIR__ . '\..\classes\contr.class.php';
-require_once __DIR__ . '\..\classes\dbh.class.php';
-require_once __DIR__ . '\..\classes\problem.class.php';
+require_once __DIR__ . '/../classes/contr.class.php';
+require_once __DIR__ . '/../classes/dbh.class.php';
+require_once __DIR__ . '/../classes/problem.class.php';
 
 if (isset($_POST['sol'])) {
     $solutionArray = json_decode($_POST['sol'], true);
@@ -13,14 +13,14 @@ if (isset($_POST['sol'])) {
     $problemObj = new Problem();
     $noError = true;
     foreach ($solutionArray as $solution) {
-        $title = trim($solution['title']);
-        $problem = trim($solution['problem']);
+        $title = htmlentities(trim($solution['title']));
+        $problem = htmlentities(trim($solution['problem']));
         $exampleInput = trim($solution['example-input']);
-        $expectedOutput = trim($solution['expected-output']);
-        $approach = trim($solution['approach']);
-        $algorithm = trim($solution['algorithm']);
-        $code = htmlspecialchars($solution['code']);
-        $explanation = trim($solution['explanation']);
+        $expectedOutput = htmlentities(trim($solution['expected-output']));
+        $approach = htmlentities(trim($solution['approach']));
+        $algorithm = htmlentities(trim($solution['algorithm']));
+        $code = htmlentities($solution['code']);
+        $explanation = htmlentities(trim($solution['explanation']));
         $difficulty = trim($solution['difficulty']);
         $tags = trim($solution['tags']);
 

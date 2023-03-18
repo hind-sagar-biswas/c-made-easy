@@ -9,7 +9,10 @@
 
     <link href="./assets/prism/prism.css" rel="stylesheet" />
     <link rel="stylesheet" href="./assets/css/cheatsheet.css">
+
+    <script src="https://kit.fontawesome.com/c9fec141b0.js" crossorigin="anonymous"></script>
 </head>
 
 <body class="line-numbers">
+    <?php require_once __DIR__ . '/nav.inc.php'; ?>
     <aside class="">

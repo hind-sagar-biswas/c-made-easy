@@ -1,3 +1,23 @@
+// URL Parse /////////////////////////////////
+const currentUrl = window.location.href;
+const url = new URL(currentUrl);
+const code = {
+	requested: false,
+	default: "#include <stdio.h>\r\n\r\nint main() {\r\n    // Your code goes here\r\n    return 0;\r\n}",
+	from: null,
+	id: null,
+};
+if (url.search != "") {
+	const id = parseInt(url.searchParams.get("try"));
+	const from = url.searchParams.get("from");
+	if (Number.isInteger(id)) {
+		code.requested = true;
+		code.from = 'probs';
+		code.id = id;
+	}
+}
+///////////////////////////////////////////////
+
 const terminal = document.getElementById("console");
 const executor = document.getElementById("execute");
 const stdinput = document.getElementById("stdin");
@@ -10,13 +30,25 @@ function checkDailyLimit() {
 		console.log(this.responseText);
 		const res = JSON.parse(this.responseText);
 		if (res.remaining == 0) {
-			executor.style.display = 'none';
+			executor.style.display = "none";
 			terminal.innerHTML = `<span class="yellow bold">&gt; </span> <span class="red bold">Daily limit reached! Limit refreshes at 12:00AM UTC.</span>`;
 		}
 	};
 	xhttp.open("POST", "./scripts/includes/jdoodle_limit.inc.php");
 	xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 	xhttp.send(``);
+}
+
+function getRequestedCode() {
+	const xhttp = new XMLHttpRequest();
+	xhttp.onload = function () {
+		const response = JSON.parse(this.responseText);
+		if (response.error) editor.setValue(code.default);
+		else editor.setValue(response.value);
+	};
+	xhttp.open("POST", "./scripts/includes/get_code.inc.php");
+	xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+	xhttp.send(`id=${code.id}&from=${code.from}`);
 }
 
 function run(code) {
@@ -300,8 +332,6 @@ require(["vs/editor/editor.main"], function () {
 	});
 
 	editor = monaco.editor.create(document.getElementById("editor"), {
-		value:
-			"#include <stdio.h>\r\n\r\nint main() {\r\n    // Your code goes here\r\n    return 0;\r\n}",
 		language: "c",
 		theme: "tomorrow-night",
 		automaticLayout: true,
@@ -315,4 +345,6 @@ window.addEventListener("load", () => {
 		const code = editor.getValue();
 		run(code);
 	});
+	if (!code.requested) editor.setValue(code.default);
+	else getRequestedCode();
 });

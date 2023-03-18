@@ -14,14 +14,15 @@ foreach ($sectionList as $section) {
 }
 ?>
 
+<input type='hidden' name='file-type' id='file-type' value='cheatsheet'>
 <!-- <section>
-    <h2 class="section-title"></h2>
+    <h2 class='section-title'></h2>
 
     <details>
         <summary>See Explaination</summary>
     </details> -->
 
-    
+
 </section>
 <?php
 require_once './scripts/includes/footer.inc.php';
