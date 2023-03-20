@@ -16,7 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Check remember me
     if (isset($_POST['remember-me'])) { $rememberMe = ($_POST['remember-me'] == 'true') ? true : false; }
-    else $rememberMe = false;
+    else $rememberMe = true;
 
     // If register user
     if ($type == 'register') {
@@ -45,7 +45,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         // Redirect with message
         if ($register[0]) redirect_to('register', "t=0&m=$message");
-        redirect_to('root', "t=1&m=$message");
+        redirect_to('register', "l=signup&t=1&m=$message");
     }
 
     // LOGIN PART

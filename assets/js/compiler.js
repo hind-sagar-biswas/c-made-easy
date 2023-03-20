@@ -34,9 +34,9 @@ function checkDailyLimit() {
 			terminal.innerHTML = `<span class="yellow bold">&gt; </span> <span class="red bold">Daily limit reached! Limit refreshes at 12:00AM UTC.</span>`;
 		}
 	};
-	xhttp.open("POST", "./scripts/includes/jdoodle_limit.inc.php");
+	xhttp.open("POST", "./scripts/api/compiler.api.php");
 	xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-	xhttp.send(``);
+	xhttp.send(`type=get_limit`);
 }
 
 function getRequestedCode() {
@@ -46,7 +46,7 @@ function getRequestedCode() {
 		if (response.error) editor.setValue(code.default);
 		else editor.setValue(response.value);
 	};
-	xhttp.open("POST", "./scripts/includes/get_code.inc.php");
+	xhttp.open("POST", "./scripts/api/get_code.api.php");
 	xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 	xhttp.send(`id=${code.id}&from=${code.from}`);
 }
@@ -61,9 +61,9 @@ function run(code) {
 		const res = JSON.parse(this.responseText);
 		showOutput(res);
 	};
-	xhttp.open("POST", "./scripts/includes/compiler.inc.php");
+	xhttp.open("POST", "./scripts/api/compiler.api.php");
 	xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-	xhttp.send(`code=${code}${stdin}`);
+	xhttp.send(`type=execute&code=${code}${stdin}`);
 }
 
 function showOutput(res) {

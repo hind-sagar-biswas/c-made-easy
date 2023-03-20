@@ -48,7 +48,7 @@ class User extends Dbh
     protected function find_user_by_id(int $uid): array
     {
         $conn = $this->conn();
-        $sql = "SELECT id, username, password, email, position_id
+        $sql = "SELECT *
                     FROM $this->userTable
                     WHERE id = ?
                     LIMIT 1";
@@ -83,7 +83,7 @@ class User extends Dbh
         return $result;
     }
 
-    protected function add_new_user(string $username, null|string $profilePic, string $fname, string $lname, string $email, string $hashed_password): false|array|null
+    protected function add_new_user(string $username, $profilePic, string $fname, string $lname, string $email, string $hashed_password)
     {
         $conn = $this->conn();
 
@@ -110,7 +110,7 @@ class User extends Dbh
         return $statement->execute();
     }
 
-    public function get_user_particular_info(string|int $username, string $col = 'email'): false|string|null
+    public function get_user_particular_info( $username, string $col = 'email')
     {
         $conn = $this->conn();
 
@@ -124,7 +124,7 @@ class User extends Dbh
         return False;
     }
 
-    public function check_user_exists(string|int $value, string $col = 'id'): bool
+    public function check_user_exists(string $value, string $col = 'id'): bool
     {
         $conn = $this->conn();
 

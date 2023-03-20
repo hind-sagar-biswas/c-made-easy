@@ -17,6 +17,8 @@ $BASE_URL = 'http://localhost:8888/c-made-easy/';
 function redirect_to(string $target = './', string $query = ''): void
 {
     if ($target == 'root') $target = $GLOBALS['BASE_URL'];
+    elseif ($target == 'register') $target = $GLOBALS['BASE_URL'] . 'log.php';
+
     if (!isset($target['query']) && !empty($query)) $query = '?' . $query;
     elseif (isset($target['query']) && !empty($query)) $query = '&' . $query;
 

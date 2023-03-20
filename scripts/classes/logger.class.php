@@ -107,7 +107,7 @@ class Logger extends Token
 
         // VALIDATE inputs
         if (!filter_var($user['email'], FILTER_VALIDATE_EMAIL)) return [False, 'Error: invalid email!'];
-        if (!preg_match('/^[a-zA-Z][0-9a-zA-Z_]{2,23}[0-9a-zA-Z]$/', $user['username'])) return [False, 'Error: invalid username!'];
+        if (!preg_match('/^[a-zA-Z0-9_]{3,20}$/', $user['username'])) return [False, 'Error: invalid username!'];
         if (!preg_match("/^([a-zA-Z' ]+)$/", $user['fname'])) return [False, 'Error: invalid first name!'];
         if (!preg_match("/^([a-zA-Z' ]+)$/", $user['lname'])) return [False, 'Error: invalid last name!'];
         if (!$user['password']) return [False, 'Error: invalid password'];

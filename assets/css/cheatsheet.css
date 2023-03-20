@@ -387,34 +387,6 @@ summary {
 }
 
 @media only screen and (max-device-width: 480px) {
-  article section {
-    background-color: transparent;
-    border: none;
-    border-radius: 0px;
-    box-shadow: none;
-    margin-bottom: 5px;
-    transition: none;
-  }
-  article section article {
-    padding: 2px;
-  }
-  article section article ul li {
-    margin-bottom: 5px;
-    text-align: justify;
-  }
-  article section .subsection {
-    border-left: 4px solid #0ba1d4;
-    padding-left: 7px;
-  }
-  article .unrevealed {
-    border-radius: 0;
-    border-bottom: 3px solid #0ba1d4;
-  }
-}
-@media only screen and (max-device-width: 480px) {
-  * {
-    border: 1px solid red;
-  }
   body {
     width: 100vw;
     max-width: 100vw;
@@ -423,9 +395,9 @@ summary {
   nav {
     background-color: #111111;
     margin: 0;
-    width: calc(100% - 40px);
-    padding: 20px 10px;
-    margin-bottom: 40px;
+    width: calc(100% - 10px);
+    padding: 20px 0px 20px 10px;
+    margin-bottom: 10px;
     display: block;
   }
   nav #logo {
@@ -447,7 +419,10 @@ summary {
     gap: 10px;
   }
   nav #menu .nav-link {
-    width: 100%;
+    width: calc(100% - 30px);
+  }
+  nav #menu.hidden {
+    display: none;
   }
   .container {
     display: block;
@@ -484,5 +459,54 @@ summary {
   }
   #console-container #toolbar #stdin:focus {
     outline: 1px solid #a32ddf;
+  }
+  aside {
+    display: none;
+  }
+  main {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+  }
+  main #load-cover {
+    left: 0px;
+    width: 100%;
+    margin: 0;
+    border-radius: 0;
+  }
+  main article {
+    width: 100%;
+    padding: 0px;
+  }
+  main article section {
+    margin-bottom: 20px;
+    padding: 10px;
+    border-radius: 0px;
+    background: transparent;
+    border: 1px solid transparent;
+  }
+  main article section .subsection {
+    border-left: 5px solid #0ba1d4;
+  }
+  main article section .solution {
+    border-color: #72ce3f;
+  }
+  main article section .solution .subsection-title {
+    color: #72ce3f;
+    text-transform: uppercase;
+  }
+  main article section .solution .section-subtitle {
+    color: #0ba1d4;
+    text-transform: capitalize;
+  }
+  main article section .solution ul {
+    list-style-type: none;
+    padding-left: 10px;
+  }
+  main article section .solution ul li {
+    margin-bottom: 10px;
+  }
+  main article section .solution a {
+    text-decoration: none;
   }
 }/*# sourceMappingURL=cheatsheet.css.map */

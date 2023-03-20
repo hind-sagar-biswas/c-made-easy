@@ -17,7 +17,7 @@
 $logTemp = "<a href='./log.php' id='log'><i class='fa-solid fa-right-to-bracket'></i></a>";
 if ($loggedIn) {
     $logTemp = "
-       <a href='./' id='user'><i class='fa-solid fa-user'></i></a>
+       <a href='./user.php' id='user'><i class='fa-solid fa-user'></i></a>
        <a href='./log.php?l=logout' id='log'><i class='fa-solid fa-right-from-bracket'></i></a>
     ";
 }

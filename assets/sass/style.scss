@@ -60,25 +60,27 @@ body {
 		top: 4vh;
 		right: 5vw;
 
-		#start-code, #log, #user {
+		#start-code,
+		#log,
+		#user {
 			text-decoration: none;
 			color: $white;
-		
+
 			padding: 10px 10px;
 			font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 			font-weight: bolder;
 			cursor: pointer;
 			outline: none !important;
 			transition: all 0.3s;
-		
+
 			background: $blue;
 			// box-shadow: 0px 5px 10px darken($grey, 40%);
-		
+
 			border: 0;
 			border-radius: 5px;
 			border: 0 solid transparent;
 			// border-bottom: 4px solid darken($blue, 20%);
-		
+
 			// &:hover {
 			// 	box-shadow: 0px 15px 25px -5px darken($grey, 40%);
 			// 	transform: scale(1.03);
@@ -89,7 +91,8 @@ body {
 			}
 		}
 
-		#log, #user {
+		#log,
+		#user {
 			display: inline-block;
 			margin-right: 10px;
 			width: 20px;
@@ -97,7 +100,6 @@ body {
 		}
 	}
 }
-
 
 #actions {
 	margin: 20px 0 40px 0;
@@ -154,5 +156,17 @@ body {
 
 	.hide-screen {
 		display: none;
+	}
+
+	#main-cont {
+		#abs {
+			top: 2vh;
+			right: 4vw;
+
+			#log,
+			#user {
+				margin-right: 3px;
+			}
+		}
 	}
 }

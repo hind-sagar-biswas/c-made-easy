@@ -78,5 +78,7 @@ window.addEventListener("load", () => {
 		targetFile = "get_solution.inc.php";
 		if (sl == 1) getFirstProblemId();
 	} else reveal(sl);
-	
+	if (screen.width <= 480) {
+		document.getElementById('menu').classList.toggle('hidden');
+	}
 });
