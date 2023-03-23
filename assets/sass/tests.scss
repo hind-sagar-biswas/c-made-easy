@@ -1,0 +1,268 @@
+@import url("https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap");
+@import "./variables";
+
+body {
+	background-image: $background-bar;
+	background-blend-mode: normal;
+	font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+
+	#back-to-top {
+		position: fixed;
+		bottom: 20px;
+		right: 20px;
+		top: auto;
+		left: auto;
+
+		width: 40px;
+		aspect-ratio: 1;
+		text-decoration: none;
+
+		color: $white;
+		background-color: $blue;
+		border-radius: 4px;
+		border: 1px solid $white;
+		box-shadow: 1px 2px 5px $dark;
+
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+}
+
+.btn-anchor {
+	display: inline-block;
+	width: 200px;
+	text-decoration: none;
+	padding: 10px 20px;
+	margin-top: 10px;
+	border: none;
+	color: $dark;
+	font-weight: bold;
+	background: $aqua;
+	border: none;
+	transition: all 0.3s ease-in-out;
+	cursor: pointer;
+
+	&:hover {
+		background: $blue;
+	}
+}
+
+#starter {
+	width: 100%;
+	max-width: 900px;
+	padding: 20px;
+	box-sizing: border-box;
+
+	ul {
+		li {
+			list-style-type: square;
+		}
+	}
+
+	p {
+		margin: 10px;
+	}
+
+	span {
+		font-size: 2.5rem;
+		font-family: "Indie Flower", cursive;
+	}
+
+	#emotion {
+		font-family: "Indie Flower", cursive;
+		font-size: 3rem;
+		margin: 10px;
+	}
+
+	#select-mark {
+		display: flex;
+		justify-content: start;
+		gap: 5px;
+		align-items: center;
+
+		button {
+			display: inline-block;
+			padding: 10px 20px;
+			border: none;
+			color: $dark;
+			font-weight: bold;
+			background: $aqua;
+			border: none;
+			transition: all 0.3s ease-in-out;
+			cursor: pointer;
+
+			&:hover {
+				background: $blue;
+			}
+		}
+	}
+}
+
+aside {
+	width: 100%;
+	max-width: 1000px;
+	min-height: 500px;
+	padding: 20px;
+	box-sizing: border-box;
+
+	background-color: transparent;
+	// box-shadow: 0 4px 16px 0 rgba(143, 143, 146, 0.3);
+	backdrop-filter: blur(4px);
+	-webkit-backdrop-filter: blur(4px);
+	border-radius: 5px;
+	border: 1px solid rgba(255, 255, 255, 0.18);
+
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	align-items: center;
+
+	#clock {
+		#counter-container {
+			font-size: 4rem;
+		}
+		h4 {
+			text-align: right;
+		}
+	}
+	#stats {
+		div {
+			margin-bottom: 10px;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			gap: 20px;
+
+			.counter {
+				background-color: $dark;
+				display: inline-block;
+				padding: 10px;
+			}
+		}
+	}
+	#submit {
+		width: 100%;
+		padding: 20px;
+		color: $dark;
+		font-weight: bold;
+		background: $aqua;
+		border: none;
+		border-radius: 4px;
+		transition: all 0.3s ease-in-out;
+		cursor: pointer;
+
+		&:hover {
+			background: $blue;
+		}
+	}
+}
+
+main {
+	width: 100%;
+	max-width: 1000px;
+
+	#test {
+		.question-box {
+			margin-bottom: 10px;
+			border-left: 5px solid $aqua;
+			padding: 10px;
+			padding-top: 0;
+
+			.question {
+				margin-bottom: 10px;
+				margin-left: -10px;
+				padding: 10px;
+				padding-left: 15px;
+				font-size: larger;
+
+				background: linear-gradient(333deg, $blue 0%, $aqua 50%);
+				color: $dark;
+
+				.question-number {
+					&::after {
+						content: ".";
+					}
+				}
+			}
+
+			.option-box {
+				.option {
+					display: flex;
+					justify-content: start;
+					align-items: center;
+					overflow: hidden;
+
+					background-color: $dark;
+					margin-bottom: 7px;
+					border: 5px solid $dark;
+					transition: border 0.3s ease-in-out;
+
+					cursor: pointer;
+
+					&:hover {
+						border-color: $blue;
+					}
+
+					input,
+					label {
+						padding: 10px;
+						cursor: pointer;
+					}
+
+					label {
+						width: 100%;
+
+						position: relative;
+						&::before {
+							content: "";
+							border: 25px solid transparent;
+							border-left-color: darken($blue, 4%);
+
+							position: absolute;
+							top: 50%;
+							left: 0;
+
+							transform: translate(calc(-50% + 1px), -50%);
+						}
+					}
+				}
+
+				.option.selected-option {
+					background-color: $blue;
+				}
+				.option.correct-ans {
+					border-color: $green;
+				}
+				.option.right {
+					background-color: $green;
+					color: $dark;
+				}
+				.option.wrong {
+					border-color: $red;
+				}
+			}
+		}
+	}
+}
+
+@media (min-width: 1000px) {
+	#starter {
+		position: fixed;
+		top: 50%;
+		left: 20px;
+		transform: translateY(-50%);
+
+		#emotion {
+			font-size: 5rem;
+		}
+	}
+	aside {
+		width: calc(100% - 1015px);
+		position: fixed;
+		top: 50%;
+		right: 0;
+		left: 1000px;
+		transform: translateY(-50%);
+	}
+}

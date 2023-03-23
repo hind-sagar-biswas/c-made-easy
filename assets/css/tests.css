@@ -1,0 +1,221 @@
+@import url("https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap");
+body {
+  background-image: url(./../image/black-bar-back.jpg);
+  background-blend-mode: normal;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+body #back-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  top: auto;
+  left: auto;
+  width: 40px;
+  aspect-ratio: 1;
+  text-decoration: none;
+  color: #ffffff;
+  background-color: #0ba1d4;
+  border-radius: 4px;
+  border: 1px solid #ffffff;
+  box-shadow: 1px 2px 5px #111111;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn-anchor {
+  display: inline-block;
+  width: 200px;
+  text-decoration: none;
+  padding: 10px 20px;
+  margin-top: 10px;
+  border: none;
+  color: #111111;
+  font-weight: bold;
+  background: #01d2d7;
+  border: none;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+}
+.btn-anchor:hover {
+  background: #0ba1d4;
+}
+
+#starter {
+  width: 100%;
+  max-width: 900px;
+  padding: 20px;
+  box-sizing: border-box;
+}
+#starter ul li {
+  list-style-type: square;
+}
+#starter p {
+  margin: 10px;
+}
+#starter span {
+  font-size: 2.5rem;
+  font-family: "Indie Flower", cursive;
+}
+#starter #emotion {
+  font-family: "Indie Flower", cursive;
+  font-size: 3rem;
+  margin: 10px;
+}
+#starter #select-mark {
+  display: flex;
+  justify-content: start;
+  gap: 5px;
+  align-items: center;
+}
+#starter #select-mark button {
+  display: inline-block;
+  padding: 10px 20px;
+  border: none;
+  color: #111111;
+  font-weight: bold;
+  background: #01d2d7;
+  border: none;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+}
+#starter #select-mark button:hover {
+  background: #0ba1d4;
+}
+
+aside {
+  width: 100%;
+  max-width: 1000px;
+  min-height: 500px;
+  padding: 20px;
+  box-sizing: border-box;
+  background-color: transparent;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 5px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+aside #clock #counter-container {
+  font-size: 4rem;
+}
+aside #clock h4 {
+  text-align: right;
+}
+aside #stats div {
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+aside #stats div .counter {
+  background-color: #111111;
+  display: inline-block;
+  padding: 10px;
+}
+aside #submit {
+  width: 100%;
+  padding: 20px;
+  color: #111111;
+  font-weight: bold;
+  background: #01d2d7;
+  border: none;
+  border-radius: 4px;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+}
+aside #submit:hover {
+  background: #0ba1d4;
+}
+
+main {
+  width: 100%;
+  max-width: 1000px;
+}
+main #test .question-box {
+  margin-bottom: 10px;
+  border-left: 5px solid #01d2d7;
+  padding: 10px;
+  padding-top: 0;
+}
+main #test .question-box .question {
+  margin-bottom: 10px;
+  margin-left: -10px;
+  padding: 10px;
+  padding-left: 15px;
+  font-size: larger;
+  background: linear-gradient(333deg, #0ba1d4 0%, #01d2d7 50%);
+  color: #111111;
+}
+main #test .question-box .question .question-number::after {
+  content: ".";
+}
+main #test .question-box .option-box .option {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  overflow: hidden;
+  background-color: #111111;
+  margin-bottom: 7px;
+  border: 5px solid #111111;
+  transition: border 0.3s ease-in-out;
+  cursor: pointer;
+}
+main #test .question-box .option-box .option:hover {
+  border-color: #0ba1d4;
+}
+main #test .question-box .option-box .option input,
+main #test .question-box .option-box .option label {
+  padding: 10px;
+  cursor: pointer;
+}
+main #test .question-box .option-box .option label {
+  width: 100%;
+  position: relative;
+}
+main #test .question-box .option-box .option label::before {
+  content: "";
+  border: 25px solid transparent;
+  border-left-color: #0a92c1;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translate(calc(-50% + 1px), -50%);
+}
+main #test .question-box .option-box .option.selected-option {
+  background-color: #0ba1d4;
+}
+main #test .question-box .option-box .option.correct-ans {
+  border-color: #72ce3f;
+}
+main #test .question-box .option-box .option.right {
+  background-color: #72ce3f;
+  color: #111111;
+}
+main #test .question-box .option-box .option.wrong {
+  border-color: #fb1d25;
+}
+
+@media (min-width: 1000px) {
+  #starter {
+    position: fixed;
+    top: 50%;
+    left: 20px;
+    transform: translateY(-50%);
+  }
+  #starter #emotion {
+    font-size: 5rem;
+  }
+  aside {
+    width: calc(100% - 1015px);
+    position: fixed;
+    top: 50%;
+    right: 0;
+    left: 1000px;
+    transform: translateY(-50%);
+  }
+}/*# sourceMappingURL=tests.css.map */

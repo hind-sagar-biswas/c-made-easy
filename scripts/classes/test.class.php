@@ -28,7 +28,7 @@ class Test extends User
             "id" => mysqli_fetch_assoc(mysqli_query($conn, $getLastEntrySql))['id'],
             "marks" => $marks,
             "time" => $marks * 60 * 1000,
-            "questions => $questions"
+            "questions" => $questions
         );
 
         return $test;
@@ -42,10 +42,10 @@ class Test extends User
         $unattended = $testObj['unattended'];
 
         $obtained = $marks - (count($wrongs) + count($unattended));
-        $percentage = ($obtained / $marks) * 100;
+        $percentage = round(($obtained / $marks) * 100, 2);
         $wrongs = json_encode($wrongs);
         $unattended = json_encode($unattended);
-        
+
         $sql = "UPDATE $this->testTable 
                     SET obtained_mark='$obtained', mark_percentage='$percentage', wrong_answers='$wrongs', unattended='$unattended' 
                     WHERE id = '$test_id'";
@@ -53,7 +53,8 @@ class Test extends User
         return $this->update_user_test_details($uid);
     }
 
-    public function fetch_all_user_tests($uid, $limit = 10) {
+    public function fetch_all_user_tests($uid, $limit = 10)
+    {
         $conn = $this->conn();
         $sql = "SELECT * FROM $this->testTable WHERE user_id = '$uid' ORDER BY id DESC LIMIT $limit;";
 
@@ -76,11 +77,17 @@ class Test extends User
 
         $result = [];
         $totalMark = 0;
+        $totalMarkOf12 = 0;
 
+        $testCountOf12 = 0;
         if ($queried_result = mysqli_query($conn, $sql)) {
             while ($fetched = mysqli_fetch_assoc($queried_result)) {
-                array_push($result, $fetched['mark_percentage']);
+                if ($testCountOf12 < 13) {
+                    $testCountOf12++;
+                    $totalMarkOf12 += $fetched['mark_percentage'];
+                }
                 $totalMark += $fetched['mark_percentage'];
+                array_push($result, $fetched['mark_percentage']);
             }
         }
 
@@ -88,7 +95,8 @@ class Test extends User
         $summary = array(
             "tests" => $testCount,
             "highest" => $result[0],
-            "average" => $totalMark / $testCount,
+            "average" => round($totalMarkOf12 / $testCountOf12, 2),
+            "all_time_average" => round($totalMark / $testCount, 2),
         );
 
         $conn->close();
@@ -111,10 +119,23 @@ class Test extends User
                         test_count = '$tests',
                         highest_mark = '$highest', 
                         delta_average_mark = $average - average_mark,
-                        average_mark = '$average'
+                        average_mark = '$average',
+                        all_time_average = ''
                     WHERE id = $uid";
         }
-        if ($this->conn()->query($sql)) return True;
+        if ($this->conn()->query($sql)) {
+            $conn = $this->conn();
+            $sql = "SELECT mark_percentage FROM $this->testTable WHERE user_id = '$uid' ORDER BY id DESC LIMIT 2";
+            $marks = array();
+            if ($queried_result = mysqli_query($conn, $sql)) {
+                while ($fetched = mysqli_fetch_assoc($queried_result)) {
+                    array_push($marks, $fetched['mark_percentage']);
+                }
+            }
+            $conn->close();
+            if (count($marks) == 1) array_push($marks, 0);
+            return $marks;
+        }
         return False;
     }
 

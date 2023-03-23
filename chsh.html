@@ -2,99 +2,51 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cheatsheet | C Programming for HSC</title>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Cheatsheet | C Programming for HSC</title>
 
-    <link href="./assets/prism/prism.css" rel="stylesheet" />
-    <link rel="stylesheet" href="./assets/css/cheatsheet.css">
+        <link href="./assets/prism/prism.css" rel="stylesheet" />
+        <link rel="stylesheet" href="./assets/css/style.css">
+        <link rel="stylesheet" href="./assets/css/tests.css">
 
-    <script src="https://kit.fontawesome.com/c9fec141b0.js" crossorigin="anonymous"></script>
+        <script src="https://kit.fontawesome.com/c9fec141b0.js" crossorigin="anonymous"></script>
 
 </head>
 
 <body class="line-numbers">
-
-    <aside>
-        <div class="side-item">Some Random Name</div>
-        <div class="side-item">Some Random Name</div>
-        <div class="side-item">Some Random Name</div>
-        <div class="side-item">Some Random Name</div>
-    </aside>
-    <main>
-        <article>
-
-            <section>
-                    <h2 class="section-title"><i class="fa-solid fa-angles-right"></i> Sum of Two Numbers</h2>
-    <div class="tags">
-                    <span class="tag">#variables</span>
-                    <span class="tag">#user input</span>
-            </div>
-    <div class="problem">
-        <div class="problem-box">
-            <i class="fa-solid fa-quote-left"></i>
-            Write a program that takes two numbers as input from the user and prints their sum. <i
-                class="fa-solid fa-quote-right"></i>
+        <div id="starter">
+                
+                <a href="./user.php" class="btn-anchor">GO TO PROFILE</a>
+                <a href="./user.php" class="btn-anchor">SEE ANSWERS</a>
         </div>
-        
-        <table id="input-output">
-            <tbody>
-                <tr>
-                    <th>Example Input</th>
-                    <th>Expected Output</th>
-                </tr>
-                <tr>
-                    <td>5, 7</td>
-                    <td>12</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-    
-    <div class="subsection solution">
-        <h3 class="subsection-title">Solution</h3>
-        <h4 class="section-subtitle">Approach</h4>
-        We can solve this problem by taking two numbers as input from the user, adding them, and then printing the sum.
-        <h4 class="section-subtitle">Algorithm:</h4>
-        <ul class="algorithm">
-            <li>Step 1: Start the program.</li><li>Step 2: Declare variables num1, num2 and sum.</li><li>Step 3: Take the value of num1 as input from the user.</li><li>Step 4: Take the value of num2 as input from the user.</li><li>Step 5: Add num1 and num2 and store the result in sum.</li><li>Step 6: Print "The sum of num1 and num2 is sum."</li><li>Step 7: End the program.</li>        </ul>
+        <aside>
+                <div id="clock">
+                        <div id="counter-container">
+                                <span class="clock-counters" id="hours">00</span> :
+                                <span class="clock-counters" id="minutes">00</span> :
+                                <span class="clock-counters" id="seconds">00</span>
+                        </div>
+                        <h4>HOURS LEFT</h4>
+                </div>
+                <div id="stats">
+                        <div>TOTAL MARKS: <span id="total" class="counter">00</span></div>
+                        <div>UNANSWERED: <span id="left" class="counter">00</span></div>
+                </div>
+                <button id="submit">SUBMIT</button>
+        </aside>
+        <main>
+                <form id="test">
 
-        <h4 class="section-subtitle">Code:</h4>
-<pre><code class="language-c">#include <stdio.h>
-
-int main() {
-   int num1, num2, sum;
-
-   printf("Input the first number: ");
-   scanf("%d", &num1);
-
-   printf("Input the second number: ");
-   scanf("%d", &num2);
-
-   sum = num1 + num2;
-
-   printf("The sum of %d and %d is %d.", num1, num2, sum);
-
-   return 0;
-}
-</code></pre>
-    <button id="try-code">TRY CODE</button>
-
-        <h4 class="section-subtitle">explanation:</h4>
-        <ul class="explanation">
-            <li>In the code, we first declare three integer variables num1, num2, and sum.</li><li>We then use the printf() function to ask the user to input the first number and store it in num1 using the scanf() function.</li><li>Similarly, we ask the user to input the second number and store it in num2 using the scanf() function.</li><li>We then add num1 and num2 and store the result in sum.</li><li>Finally, we use the printf() function to print the sum along with the input values num1 and num2 in the required format.</li>        </ul>
-
-    </div>
-            </section>
-
-        </article>
-    </main>
+                </form>
+        </main>
+        <a href="#test" id="back-to-top"><i class="fa-solid fa-arrow-up fa-bounce"></i></a>
 
 
 
-    <script src="./assets/prism/prism.js"></script>
-    <!-- <script src="./assets/js/compiler.js"></script> -->
+        <script src="./assets/prism/prism.js"></script>
+        <!-- <script src="./assets/js/compiler.js"></script> -->
 </body>
 
 </html>

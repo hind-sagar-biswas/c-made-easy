@@ -15,7 +15,10 @@ switch ($_POST['type']) {
         break;
     case 'evaluate':
         $testObj = json_decode($_POST['test'], true);
-        $test->test_eval($testObj, $_SESSION['user_id']);
+        echo json_encode($test->test_eval($testObj, $_SESSION['user_id']));
+        break;
+    case 'user_data':
+        
         break;
     
     default:
