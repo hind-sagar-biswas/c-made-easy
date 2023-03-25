@@ -13,11 +13,14 @@
     <script src="https://kit.fontawesome.com/c9fec141b0.js" crossorigin="anonymous"></script>
 </head>
 
-<?php 
+<?php
 $logTemp = "<a href='./log.php' id='log'><i class='fa-solid fa-right-to-bracket'></i></a>";
 if ($loggedIn) {
+    $imageDIR = $BASE_URL . 'assets/image/';
+    if ($_SESSION['profile_pic'] != 'default.user.png') $imageDIR = $imageDIR . 'uploads/';
+    $pic_path = $imageDIR . $_SESSION['profile_pic'];
     $logTemp = "
-       <a href='./user.php' id='user'><i class='fa-solid fa-user'></i></a>
+       <a href='./user.php' id='user'><img src='$pic_path' alt=''><span>" . $_SESSION['username'] . "</span></a>
        <a href='./log.php?l=logout' id='log'><i class='fa-solid fa-right-from-bracket'></i></a>
     ";
 }
@@ -25,6 +28,19 @@ if ($loggedIn) {
 ?>
 
 <body>
+    <div id="loader">
+        <div class="lds-grid">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
     <center id="main-cont">
         <div id="abs">
             <?= $logTemp ?>
@@ -59,9 +75,20 @@ if ($loggedIn) {
         </div>
         <div id="actions">
             <a id="blue" href="./cheatsheet.php" target="_blank" rel="noopener noreferrer"><button>CHEATSHEET</button></a>
-            <a id="red" href="#" target="_blank" rel="noopener noreferrer"><button>PROBLEMS</button></a>
+            <a id="red" href="./problems.php" target="_blank" rel="noopener noreferrer"><button>PROBLEMS</button></a>
+            <a id="green" href="./test.php" target="_blank" rel="noopener noreferrer"><button>TESTS</button></a>
         </div>
+
     </center>
+    <footer>
+        <p>A PROJECT OF <a href="http://coderaptors.epizy.com/" target="_blank">THE CODE RAPTORS</a></p>
+    </footer>
+
+    <script>
+        window.addEventListener("load", () => {
+            document.getElementById('loader').classList.add('hidden');
+        });
+    </script>
 </body>
 
 </html>

@@ -6,7 +6,7 @@ class User extends Dbh
     protected function find_user_by_username(string $nameOrMail)
     {
         $conn = $this->conn();
-        $sql = "SELECT id, username, password, email
+        $sql = "SELECT id, username, password, email, profile_pic
                     FROM $this->userTable
                     WHERE username = ? OR 
                             email = ?

@@ -9,6 +9,7 @@
 
 <!-- <script src="./assets/prism/prism.js"></script> -->
 <script src="./assets/js/script.js"></script>
+<script src="./assets/js/general.js"></script>
 </body>
 
 </html>

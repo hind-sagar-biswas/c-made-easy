@@ -29,6 +29,7 @@ class Logger extends Token
         if (session_regenerate_id()) {
             // set username id email and position in the session
             $_SESSION['username'] = $user['username'];
+            $_SESSION['profile_pic'] = $user['profile_pic'];
             $_SESSION['user_id'] = $user['id'];
             $_SESSION['email'] = $user['email'];
             return true;
@@ -83,7 +84,7 @@ class Logger extends Token
             $this->delete_user_token($_SESSION['user_id']);
 
             // delete session
-            unset($_SESSION['username'], $_SESSION['user_id'], $_SESSION['email']);
+            unset($_SESSION['username'], $_SESSION['profile_pic'], $_SESSION['user_id'], $_SESSION['email']);
 
             // remove the remember_me cookie
             if (isset($_COOKIE['remember_me'])) {

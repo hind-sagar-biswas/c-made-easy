@@ -42,6 +42,7 @@
 
 
     <script src="./assets/js/compiler.js"></script>
+    <script src="./assets/js/general.js"></script>
 </body>
 
 </html>

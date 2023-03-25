@@ -249,7 +249,9 @@ function showResult() {
 
 	noticeBox.innerHTML += `<p>You Got <span id="full-marks">${test.obtained}</span> out of <span id="total-marks">${test.marks}</span>.</p>
                 <p>Its <span id="percentage">${test.percentage}%</span>.</p>
-                <p>Your performance <b id="change">increased</b> by <span id="change-percentage">${testPerformance.delta}%</span>!</p>`;
+                <p>Your performance <b id="change">increased</b> by <span id="change-percentage">${testPerformance.delta}%</span>!</p>
+				<a href="./user.php" class="btn-anchor">GO TO PROFILE</a>
+                <a href="#" class="btn-anchor" onmousedown="showAnswers()">SEE ANSWERS</a>`;
 	const performanceMsg = document.getElementById('change');
 
 	emotionResponse = document.getElementById('emotion');

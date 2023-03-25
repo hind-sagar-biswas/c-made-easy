@@ -53,20 +53,24 @@ class Test extends User
         return $this->update_user_test_details($uid);
     }
 
-    public function fetch_all_user_tests($uid, $limit = 10)
+    public function fetch_user_test_data($uid)
     {
-        $conn = $this->conn();
-        $sql = "SELECT * FROM $this->testTable WHERE user_id = '$uid' ORDER BY id DESC LIMIT $limit;";
-
-        $result = [];
-
-        if ($queried_result = mysqli_query($conn, $sql)) {
-            while ($fetched = mysqli_fetch_assoc($queried_result)) {
-                array_push($result, $fetched['mark_percentage']);
-            }
+        $result = array(
+            "marks" => [],
+            "obtained_n_total" => []
+        );
+        $fetched = $this->fetch_all_user_tests($uid);
+        foreach ($fetched as $testData) {
+            array_push($result['marks'], $testData['mark_percentage']);
+            array_push($result['obtained_n_total'], [$testData['obtained_mark'], $testData['full_mark']]);
         }
 
-        $conn->close();
+        $leftToFill = 10 - count($result['marks']);
+        if ($leftToFill == 0) return $result;
+        for ($i=0; $i < $leftToFill; $i++) {
+            array_push($result['marks'], null);
+            array_push($result['obtained_n_total'], [null, null]);
+        }
         return $result;
     }
 
@@ -105,6 +109,25 @@ class Test extends User
 
 
     // PROTECTEDS /////////////////////////////////////////////
+
+
+
+    protected function fetch_all_user_tests($uid, $limit = 10)
+    {
+        $conn = $this->conn();
+        $sql = "SELECT * FROM $this->testTable WHERE user_id = '$uid' ORDER BY id DESC LIMIT $limit;";
+
+        $result = [];
+
+        if ($queried_result = mysqli_query($conn, $sql)) {
+            while ($fetched = mysqli_fetch_assoc($queried_result)) {
+                array_push($result, $fetched);
+            }
+        }
+
+        $conn->close();
+        return $result;
+    }
 
     protected function update_user_test_details($uid, $eval = true)
     {

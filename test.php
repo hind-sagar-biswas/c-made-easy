@@ -1,3 +1,4 @@
+<?php require_once './scripts/includes/config.inc.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -16,8 +17,9 @@
 
 <body>
     <div id="top"></div>
+    <?php require_once './scripts/includes/nav.inc.php' ?>
     <div id="starter">
-        <p><span class="red">!!</span> Please make sure to read and understand these instructions below before starting the exam.</p>
+        <p><b class="red">!!</b> Please make sure to read and understand these instructions below before starting the exam.</p>
 
         <ul>
             <li> The exam timer will start as soon as you click on the button to select marks. The number of total marks available for the exam will be equal to the number of minutes allotted for the exam.</li>
@@ -34,12 +36,17 @@
         <p id="emotion">Good luck!</p>
 
         <div id="select-mark">
-            START THE EXAM FOR 
-            <button onclick="startExam(15)">15</button>
-            <button onclick="startExam(25)">25</button>
-            <button onclick="startExam(50)">50</button>
-            <button onclick="startExam(100)">100</button>
-             MARKS
+            <?php if ($loggedIn) : ?>
+                START THE EXAM FOR
+                <button onclick="startExam(15)">15</button>
+                <button onclick="startExam(25)">25</button>
+                <button onclick="startExam(50)">50</button>
+                <button onclick="startExam(100)">100</button>
+                MARKS
+            <?php else : ?>
+                <span class="red">LOGIN FIRST TO ATTEND A TEST!</span>
+
+            <?php endif; ?>
         </div>
     </div>
     <aside>
@@ -65,6 +72,7 @@
     <a href="#top" id="back-to-top"><i class="fa-solid fa-arrow-up fa-bounce"></i></a>
 
     <script src="./assets/js/test.js"></script>
+    <script src="./assets/js/general.js"></script>
     <script src="./node_modules/he/he.js"></script>
 </body>
 

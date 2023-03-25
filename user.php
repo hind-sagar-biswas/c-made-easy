@@ -44,17 +44,21 @@ $fetchedUser['pic_path'] = $imageDIR . $fetchedUser['profile_pic'];
             <div id="user">
                 <img src="<?= $fetchedUser['pic_path'] ?>" alt="<?= $fetchedUser['name'] ?>" id="profile-pic">
                 <div id="details">
-                    <div class="row"></div>
+                    <div class="row">
+                        <?php if ($loggedIn && $_SESSION['user_id'] == $fetchedUser['id']) : ?>
+                            <a href="#"><i class="fa-solid fa-pen-to-square"></i></a>
+                        <?php endif; ?>
+                    </div>
                     <div class="row">
                         <h1 id="user-full-name"><?= $fetchedUser['name'] ?></h1>
                         <p><i id="username">@<?= $fetchedUser['username'] ?></i></p>
                     </div>
-                    <div class="row">
+                    <div class="row mobile-hidden">
                         <div><strong id="test-count"><?= $fetchedUser['test_count'] ?></strong> Tests Taken</div>
                         <div>
                             <strong id="average" class="<?php
-                                                        if ($fetchedUser['delta_average_mark'] > 0) echo "green";
-                                                        elseif ($fetchedUser['delta_average_mark'] < 0) echo "red";
+                                                        if ($fetchedUser['delta_average_mark'] < 0) echo "green";
+                                                        elseif ($fetchedUser['delta_average_mark'] > 0) echo "red";
                                                         ?>">
                                 <?= $fetchedUser['average_mark'] ?>%
                             </strong> Average Scode
@@ -63,11 +67,52 @@ $fetchedUser['pic_path'] = $imageDIR . $fetchedUser['profile_pic'];
                     </div>
                 </div>
             </div>
+            <div class="row pc-hidden">
+                <div><strong id="test-count"><?= $fetchedUser['test_count'] ?></strong> Tests Taken</div>
+                <div>
+                    <strong id="average" class="<?php
+                                                if ($fetchedUser['delta_average_mark'] < 0) echo "green";
+                                                elseif ($fetchedUser['delta_average_mark'] > 0) echo "red";
+                                                ?>">
+                        <?= $fetchedUser['average_mark'] ?>%
+                    </strong> Average Scode
+                </div>
+                <div><strong id="highest"><?= $fetchedUser['highest_mark'] ?>%</strong> Highest Score</div>
+            </div>
         </div>
         <div id="progress"></div>
+        <br>
+        <?php if ($loggedIn && $_SESSION['user_id'] == $fetchedUser['id']) : ?>
+            <div id="user-limits">
+                <p><b>Account type:</b> FREE</p>
+                <p><small>Upgrade your account to get unlimited usage!</small></p>
+                <table>
+                    <caption>Usage limits</caption>
+                    <tr>
+                        <th></th>
+                        <th>Usage Left</th>
+                        <th>Limit</th>
+                        <th>Resets in</th>
+                    </tr>
+                    <tr>
+                        <td>Tests</td>
+                        <td>0</td>
+                        <td>2</td>
+                        <td>12 days</td>
+                    </tr>
+                    <tr>
+                        <td>Compiler</td>
+                        <td>4</td>
+                        <td>5</td>
+                        <td>2 days</td>
+                    </tr>
+                </table>
+            </div>
+        <?php endif; ?>
     </div>
 
     <script src="./node_modules/plotly.js-dist/plotly.js"></script>
+    <script src="./assets/js/general.js"></script>
     <script src="./assets/js/user.js"></script>
 </body>
 
