@@ -82,7 +82,7 @@ class Token extends User
 
         if (!$tokens) return null;
 
-        $sql = "SELECT users.id, username, email
+        $sql = "SELECT users.id, username, email, profile_pic
             FROM $this->userTable AS users
             INNER JOIN $this->tokenTable ON user_id = users.id
             WHERE selector = ? AND

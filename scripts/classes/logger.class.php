@@ -52,7 +52,7 @@ class Logger extends Token
         }
 
         // check the remember_me in cookie
-        $token = (isset($_COOKIE['remember_me'])) ? $_COOKIE['remember_me'] : 0 ;
+        $token = (isset($_COOKIE['remember_me'])) ? $_COOKIE['remember_me'] : 0;
         if ($token && $this->validate_token($token)) {
             $user = $this->find_user_by_token($token);
             if ($user) return $this->session_login($user);
@@ -96,11 +96,12 @@ class Logger extends Token
             session_destroy();
 
             return True;
-        } return False;
+        }
+        return False;
     }
 
 
-    public function register(array $user): array
+    public function register(array $user, bool $api = false): array
     {
         // Check if inputs are EMPTY
         if (empty($user['username'])) return [False, 'Error: username can\'t be empty!'];
@@ -131,16 +132,19 @@ class Logger extends Token
 
         // Upload IMG
         $image = ["error" => True];
-        if(isset($_FILES['profile-pic'])) $image = $this->upload_image('profile-pic');
+        if (isset($_FILES['profile-pic'])) $image = $this->upload_image('profile-pic');
         $imageFileName = (!$image['error']) ? $image['name'] : null;
 
         // ADD new user
         $new_user = $this->add_new_user($username, $imageFileName, $fname, $lname, $email, $password);
         if (!$new_user) return [False, 'Error: error adding new user'];
 
-        // LOGIN new user
-        $login  = $this->login($new_user['username'], $user['password'], $rememberMe);
-        if (!$login[0]) return [True, 'User successfully registered! Try login now...'];
-        return [True, 'User successfully registered! logging in...' . $login[1]];
+        // LOGIN new user 
+        if (!$api) {
+            $login  = $this->login($new_user['username'], $user['password'], $rememberMe);
+            if (!$login[0]) return [True, 'User successfully registered! Try login now...'];
+            return [True, 'User successfully registered! logging in...' . $login[1]];
+        }
+        return [True, 'User successfully registered!'];
     }
 }

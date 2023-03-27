@@ -12,6 +12,9 @@ require_once __DIR__ . '/../classes/logger.class.php';
 
 
 $BASE_URL = 'http://localhost:8888/c-made-easy/';
+$page = 'general';
+$custom_css = array();
+$custom_js = array();
 
 
 function redirect_to(string $target = './', string $query = ''): void

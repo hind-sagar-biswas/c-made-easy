@@ -1,0 +1,144 @@
+@import url("https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap");
+body {
+  min-height: 100svh;
+  position: relative;
+  padding-bottom: 90px;
+}
+
+form {
+  width: 100%;
+  max-width: 700px;
+  margin: 20px auto;
+  margin-bottom: 0;
+  padding: 30px 50px;
+  background-color: #111111;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 5px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+form h1 {
+  font-family: "Indie Flower", cursive;
+  margin: 10px auto;
+  text-align: center;
+  font-size: 3rem;
+  font-weight: normal;
+}
+form label {
+  color: #4f4f4f;
+  text-transform: capitalize;
+}
+form label .msg {
+  font-size: small;
+  text-transform: lowercase;
+}
+form input:-webkit-autofill,
+form input:-webkit-autofill:hover,
+form input:-webkit-autofill:focus,
+form input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 40px black inset !important;
+  -webkit-text-fill-color: #ffffff !important;
+}
+form input[type=text],
+form input[type=email],
+form input[type=password] {
+  width: 100%;
+  display: block;
+  padding: 15px;
+  margin: 10px 0;
+  border: none;
+  color: #ffffff;
+  border-bottom: 2px solid #4f4f4f;
+  box-shadow: 0 0 0 40px black inset !important;
+  -webkit-box-shadow: 0 0 0 40px black inset !important;
+  -webkit-text-fill-color: #ffffff !important;
+}
+form input[type=text]:hover,
+form input[type=email]:hover,
+form input[type=password]:hover {
+  box-shadow: 0 0 0 40px black inset !important;
+  -webkit-box-shadow: 0 0 0 40px #1e1e1e inset !important;
+  -webkit-text-fill-color: #ffffff !important;
+}
+form input[type=text]:focus, form input[type=text]:active,
+form input[type=email]:focus,
+form input[type=email]:active,
+form input[type=password]:focus,
+form input[type=password]:active {
+  border-color: #0ba1d4;
+}
+form input.valid {
+  border-color: #72ce3f !important;
+}
+form input.invalid {
+  border-color: #fb1d25 !important;
+}
+form input,
+form button {
+  transition: all 0.3s ease-in-out;
+}
+form input:hover,
+form button:hover {
+  outline: none;
+}
+form input:focus,
+form button:focus {
+  outline: none;
+}
+form button {
+  margin-top: 20px;
+  width: 100%;
+  padding: 10px 20px;
+  color: #ffffff;
+  font-weight: bolder;
+  border-radius: 5px;
+  cursor: pointer;
+  border: 0 solid transparent;
+  outline: none !important;
+  border: 0;
+  outline: none;
+  box-shadow: 0px 5px 10px black;
+  background: #0ba1d4;
+  border-bottom: 4px solid #065773;
+  transition-duration: 0.2s;
+}
+form button:hover {
+  box-shadow: 0px 15px 25px -5px black;
+  transform: scale(1.02);
+}
+form button:active {
+  box-shadow: 0px 4px 8px #030303;
+  transform: scale(0.99);
+}
+form button:disabled {
+  pointer-events: none;
+  background-color: #4f4f4f;
+  border-bottom: 4px solid #1c1c1c;
+  box-shadow: none;
+  opacity: 0.8;
+}
+form a {
+  color: #0ba1d4;
+  display: inline-block;
+  border-bottom: 1px solid #0ba1d4;
+  padding: 2px 5px;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media only screen and (max-device-width: 500px) {
+  form {
+    background-color: transparent;
+    padding: 10px;
+    border: none;
+    -webkit-backdrop-filter: blur(1px);
+            backdrop-filter: blur(1px);
+  }
+}/*# sourceMappingURL=log.css.map */

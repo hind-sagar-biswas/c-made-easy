@@ -1,6 +1,7 @@
 {
 	"liveServer.settings.CustomBrowser": "chrome",
-	"liveServer.settings.host": "localhost",
+	"liveServer.settings.host": "127.0.0.1",
 	"liveServer.settings.useWebExt": true,
-	"liveServer.settings.donotShowInfoMsg": true
+	"liveServer.settings.donotShowInfoMsg": false,
+	"liveServer.settings.fullReload": true
 }

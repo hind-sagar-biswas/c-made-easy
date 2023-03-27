@@ -1,14 +1,12 @@
-</aside>
+<?php if ($page == 'study') : ?>
+    <script src="./assets/js/script.js"></script>
+<?php endif; ?>
 
-<main>
-    <article id="container">
-    </article>
-    <div id="load-cover" class="active"></div>
-</main>
+<?php foreach ($custom_js as $js) : ?>
+    <script src="<?= $js ?>"></script>
+<?php endforeach; ?>
 
-
-<!-- <script src="./assets/prism/prism.js"></script> -->
-<script src="./assets/js/script.js"></script>
+<script src="./assets/prism/prism.js"></script>
 <script src="./assets/js/general.js"></script>
 </body>
 

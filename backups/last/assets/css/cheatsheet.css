@@ -1,37 +1,22 @@
 @import url("https://fonts.googleapis.com/css2?family=Overpass+Mono:wght@300;400;500;700&display=swap");
-* {
-  box-sizing: border-box;
-}
-
 body {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+  background-color: #111111;
+  color: #ffffff;
+  min-height: 100vh;
+  background-image: url(./../image/hex-back.jpg);
+  background-blend-mode: overlay;
+  background-attachment: fixed;
+  background-size: cover;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-}
-
-ul {
-  list-style-type: none;
-}
-
-a {
-  text-decoration: none;
-}
-
-table {
-  border-collapse: collapse;
-  table-layout: fixed;
-  width: 100%;
-}
-table th,
-table td {
-  border: 1px solid #4f4f4f;
-  padding: 5px 10px;
 }
 
 nav {
   background-color: #111111;
   margin: 0;
-  width: 100%;
+  width: calc(100% - 20px);
   padding: 20px 10px;
   margin-bottom: 0px;
   display: flex;
@@ -74,223 +59,6 @@ nav #menu .nav-link.active {
   background-color: #0ba1d4;
   color: #111111;
 }
-nav #menu .nav-link.btn {
-  background-color: #0ba1d4;
-  color: #ffffff;
-  min-width: auto;
-}
-nav #menu .nav-link.btn.btn-red {
-  background-color: #fb1d25 !important;
-  border-color: #e1040c !important;
-}
-
-footer {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  min-height: auto;
-  text-align: center;
-  color: #111111;
-  background-color: #0ba1d4;
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
-}
-footer a {
-  font-weight: bold;
-  color: #ffffff;
-}
-
-#loader {
-  z-index: 1000;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100svw;
-  height: calc(100svh + 1px);
-  background-color: #111111;
-  opacity: 1;
-  transition: all 0.3s ease-out;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-#loader .lds-grid {
-  display: inline-block;
-  position: relative;
-  width: 80px;
-  height: 80px;
-}
-#loader .lds-grid div {
-  position: absolute;
-  width: 16px;
-  height: 16px;
-  border-radius: 50%;
-  background: #ffffff;
-  animation: lds-grid 1.2s linear infinite;
-}
-#loader .lds-grid div:nth-child(1) {
-  top: 8px;
-  left: 8px;
-  animation-delay: 0s;
-}
-#loader .lds-grid div:nth-child(2) {
-  top: 8px;
-  left: 32px;
-  animation-delay: -0.4s;
-}
-#loader .lds-grid div:nth-child(3) {
-  top: 8px;
-  left: 56px;
-  animation-delay: -0.8s;
-}
-#loader .lds-grid div:nth-child(4) {
-  top: 32px;
-  left: 8px;
-  animation-delay: -0.4s;
-}
-#loader .lds-grid div:nth-child(5) {
-  top: 32px;
-  left: 32px;
-  animation-delay: -0.8s;
-}
-#loader .lds-grid div:nth-child(6) {
-  top: 32px;
-  left: 56px;
-  animation-delay: -1.2s;
-}
-#loader .lds-grid div:nth-child(7) {
-  top: 56px;
-  left: 8px;
-  animation-delay: -0.8s;
-}
-#loader .lds-grid div:nth-child(8) {
-  top: 56px;
-  left: 32px;
-  animation-delay: -1.2s;
-}
-#loader .lds-grid div:nth-child(9) {
-  top: 56px;
-  left: 56px;
-  animation-delay: -1.6s;
-}
-
-#loader.hidden {
-  pointer-events: none;
-  opacity: 0;
-}
-
-.mono {
-  font-family: "Courier New", Courier, monospace;
-  font-family: "Overpass Mono", monospace;
-  background: #111111;
-  padding: 2px 7px;
-  border-radius: 4px;
-}
-
-.bold {
-  font-weight: bold;
-}
-
-.courier {
-  font-family: "Courier New", Courier, monospace;
-}
-
-.blue {
-  color: #0ba1d4;
-}
-
-.purple {
-  color: #ca86ec;
-}
-
-.green {
-  color: #72ce3f;
-}
-
-.red {
-  color: #fb1d25;
-}
-
-.yellow {
-  color: #c9db36;
-}
-
-.grey {
-  color: #4f4f4f;
-}
-
-.itallic {
-  font-style: italic;
-}
-
-.small {
-  font-size: small;
-}
-
-@media only screen and (max-device-width: 500px) {
-  nav {
-    background-color: #111111;
-    margin: 0;
-    width: 100%;
-    display: block;
-  }
-  nav #logo {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-  nav #logo a {
-    display: flex;
-    justify-content: start;
-    align-items: center;
-  }
-  nav #menu {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: start;
-    gap: 10px;
-    transition: all 0.3s ease-in-out;
-    max-height: 1000px;
-    overflow: hidden;
-  }
-  nav #menu .nav-link {
-    width: 100%;
-  }
-  nav #menu.hidden {
-    max-height: 0;
-  }
-  .mobile-hidden {
-    display: none !important;
-  }
-}
-@media (min-width: 500px) {
-  .pc-hidden {
-    display: none !important;
-  }
-}
-@keyframes lds-grid {
-  0%, 100% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.5;
-  }
-}
-body {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  background-color: #111111;
-  color: #ffffff;
-  min-height: 100vh;
-  background-image: url(./../image/hex-back.jpg);
-  background-blend-mode: overlay;
-  background-attachment: fixed;
-  background-size: cover;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-}
 
 aside {
   margin: 0;
@@ -300,7 +68,7 @@ aside {
   float: left;
 }
 aside .side-item {
-  width: 100%;
+  width: calc(100% - 50px);
   margin: 0;
   margin-bottom: 2px;
   padding: 10px 20px;
@@ -412,6 +180,12 @@ main article section .solution .section-subtitle {
   color: #0ba1d4;
   text-transform: capitalize;
 }
+main article section .solution ul {
+  list-style-type: none;
+}
+main article section .solution a {
+  text-decoration: none;
+}
 main article section .solution #try-code {
   display: block;
   color: #ffffff;
@@ -485,6 +259,54 @@ summary {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   font-weight: normal;
   margin: 20px auto;
+}
+
+.mono {
+  font-family: "Courier New", Courier, monospace;
+  font-family: "Overpass Mono", monospace;
+  background: #111111;
+  padding: 2px 7px;
+  border-radius: 4px;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.courier {
+  font-family: "Courier New", Courier, monospace;
+}
+
+.blue {
+  color: #0ba1d4;
+}
+
+.purple {
+  color: #ca86ec;
+}
+
+.green {
+  color: #72ce3f;
+}
+
+.red {
+  color: #fb1d25;
+}
+
+.yellow {
+  color: #c9db36;
+}
+
+.grey {
+  color: #4f4f4f;
+}
+
+.itallic {
+  font-style: italic;
+}
+
+.small {
+  font-size: small;
 }
 
 .container {
@@ -565,10 +387,67 @@ summary {
 }
 
 @media only screen and (max-device-width: 480px) {
+  article section {
+    background-color: transparent;
+    border: none;
+    border-radius: 0px;
+    box-shadow: none;
+    margin-bottom: 5px;
+    transition: none;
+  }
+  article section article {
+    padding: 2px;
+  }
+  article section article ul li {
+    margin-bottom: 5px;
+    text-align: justify;
+  }
+  article section .subsection {
+    border-left: 4px solid #0ba1d4;
+    padding-left: 7px;
+  }
+  article .unrevealed {
+    border-radius: 0;
+    border-bottom: 3px solid #0ba1d4;
+  }
+}
+@media only screen and (max-device-width: 480px) {
+  * {
+    border: 1px solid red;
+  }
   body {
     width: 100vw;
     max-width: 100vw;
     border-color: #0ba1d4;
+  }
+  nav {
+    background-color: #111111;
+    margin: 0;
+    width: calc(100% - 40px);
+    padding: 20px 10px;
+    margin-bottom: 40px;
+    display: block;
+  }
+  nav #logo {
+    font-size: xx-large;
+    cursor: pointer;
+  }
+  nav #logo a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: #ffffff;
+  }
+  nav #menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: start;
+    gap: 10px;
+  }
+  nav #menu .nav-link {
+    width: 100%;
   }
   .container {
     display: block;
@@ -605,54 +484,5 @@ summary {
   }
   #console-container #toolbar #stdin:focus {
     outline: 1px solid #a32ddf;
-  }
-  aside {
-    display: none;
-  }
-  main {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-  }
-  main #load-cover {
-    left: 0px;
-    width: 100%;
-    margin: 0;
-    border-radius: 0;
-  }
-  main article {
-    width: 100%;
-    padding: 0px;
-  }
-  main article section {
-    margin-bottom: 20px;
-    padding: 10px;
-    border-radius: 0px;
-    background: transparent;
-    border: 1px solid transparent;
-  }
-  main article section .subsection {
-    border-left: 5px solid #0ba1d4;
-  }
-  main article section .solution {
-    border-color: #72ce3f;
-  }
-  main article section .solution .subsection-title {
-    color: #72ce3f;
-    text-transform: uppercase;
-  }
-  main article section .solution .section-subtitle {
-    color: #0ba1d4;
-    text-transform: capitalize;
-  }
-  main article section .solution ul {
-    list-style-type: none;
-    padding-left: 10px;
-  }
-  main article section .solution ul li {
-    margin-bottom: 10px;
-  }
-  main article section .solution a {
-    text-decoration: none;
   }
 }/*# sourceMappingURL=cheatsheet.css.map */

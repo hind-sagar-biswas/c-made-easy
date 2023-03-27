@@ -1,0 +1,153 @@
+@import url("https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap");
+@import "./variables";
+body {
+	min-height: 100svh;
+	position: relative;
+	padding-bottom: 90px;
+}
+form {
+	width: 100%;
+	max-width: 700px;
+	margin: 20px auto;
+	margin-bottom: 0;
+	padding: 30px 50px;
+
+	background-color: $dark;
+	backdrop-filter: blur(4px);
+	-webkit-backdrop-filter: blur(4px);
+	border-radius: 5px;
+	border: 1px solid rgba(255, 255, 255, 0.18);
+
+	h1 {
+		font-family: "Indie Flower", cursive;
+		margin: 10px auto;
+		text-align: center;
+		font-size: 3rem;
+		font-weight: normal;
+	}
+
+	label {
+		color: $grey;
+		text-transform: capitalize;
+
+		.msg {
+			font-size: small;
+			text-transform: lowercase;
+		}
+	}
+
+	input:-webkit-autofill,
+	input:-webkit-autofill:hover,
+	input:-webkit-autofill:focus,
+	input:-webkit-autofill:active {
+		-webkit-box-shadow: 0 0 0 40px darken($dark, 10%) inset !important;
+		-webkit-text-fill-color: $white !important;
+	}
+
+	input[type="text"],
+	input[type="email"],
+	input[type="password"] {
+		width: 100%;
+		display: block;
+		padding: 15px;
+		margin: 10px 0;
+		border: none;
+		color: $white;
+		border-bottom: 2px solid $grey;
+		box-shadow: 0 0 0 40px darken($dark, 10%) inset !important;
+		-webkit-box-shadow: 0 0 0 40px darken($dark, 10%) inset !important;
+		-webkit-text-fill-color: $white !important;
+
+		&:hover {
+			box-shadow: 0 0 0 40px darken($dark, 10%) inset !important;
+			-webkit-box-shadow: 0 0 0 40px lighten($dark, 5%) inset !important;
+			-webkit-text-fill-color: $white !important;
+		}
+
+		&:focus,
+		&:active {
+			border-color: $blue;
+		}
+	}
+
+	input.valid {
+		border-color: $green !important;
+	}
+
+	input.invalid {
+		border-color: $red !important;
+	}
+
+	input,
+	button {
+		transition: all 0.3s ease-in-out;
+
+		&:hover {
+			outline: none;
+		}
+		&:focus {
+			outline: none;
+		}
+	}
+
+	button {
+		margin-top: 20px;
+		width: 100%;
+		padding: 10px 20px;
+		color: #ffffff;
+		font-weight: bolder;
+		border-radius: 5px;
+		cursor: pointer;
+		border: 0 solid transparent;
+		outline: none !important;
+		border: 0;
+		outline: none;
+		box-shadow: 0px 5px 10px darken($grey, 40%);
+
+		background: $blue;
+		border-bottom: 4px solid darken($blue, 20%);
+		transition-duration: 0.2s;
+
+		&:hover {
+			box-shadow: 0px 15px 25px -5px darken($grey, 40%);
+			transform: scale(1.02);
+		}
+		&:active {
+			box-shadow: 0px 4px 8px darken($grey, 30%);
+			transform: scale(0.99);
+		}
+	}
+
+	button:disabled {
+		pointer-events: none;
+		background-color: $grey;
+		border-bottom: 4px solid darken($grey, 20%);
+		box-shadow: none;
+		opacity: 0.8;
+	}
+
+	a {
+		color: $blue;
+		display: inline-block;
+		border-bottom: 1px solid $blue;
+		padding: 2px 5px;
+	}
+}
+
+footer {
+	position: absolute;
+	bottom: 0;
+	height: 70px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+@media only screen and (max-device-width: 500px) {
+	form {
+		background-color: transparent;
+		padding: 10px;
+		border: none;
+		backdrop-filter: blur(1px);
+	}
+}

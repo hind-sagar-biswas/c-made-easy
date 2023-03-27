@@ -9,11 +9,11 @@ if (isset($_POST['ques'])) {
 
     $questionArray = json_decode($_POST['ques'], true);
     foreach ($questionArray as $questionSet) {
-        $question = htmlentities(trim($questionSet['question']));
-        $a = htmlentities(trim($questionSet['optionA']));
-        $b = htmlentities(trim($questionSet['optionB']));
-        $c = htmlentities(trim($questionSet['optionC']));
-        $d = htmlentities(trim($questionSet['optionD']));
+        $question = htmlentities(trim($questionSet['question']), ENT_QUOTES, 'UTF-8');
+        $a = htmlentities(trim($questionSet['optionA']), ENT_QUOTES, 'UTF-8');
+        $b = htmlentities(trim($questionSet['optionB']), ENT_QUOTES, 'UTF-8');
+        $c = htmlentities(trim($questionSet['optionC']), ENT_QUOTES, 'UTF-8');
+        $d = htmlentities(trim($questionSet['optionD']), ENT_QUOTES, 'UTF-8');
         $board = trim($questionSet['board']);
 
         $added = $testObj->addQuestion(5, $question, $a, $b, $c, $d, $board);
